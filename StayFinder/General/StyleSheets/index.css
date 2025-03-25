@@ -1,0 +1,156 @@
+﻿html, body {
+    overflow: auto; /* Allows scrolling */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, Edge */
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.3));
+              
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.hero-section .btn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    transition: 0.3s ease-in-out;
+}
+
+.hero-section .btn:hover {
+    background: #0044cc;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), 
+                    url('https://source.unsplash.com/1600x900/?luxury-apartment') no-repeat center center/cover;
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .hero-section .btn {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+    
+    .hero-section .row {
+        flex-direction: column-reverse;
+    }
+
+    .hero-section img {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* How It Works */
+.info-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.info-box:hover {
+    background: #e2e6ea;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+/* Why Choose Stay Finder */
+.choose-us {
+    background: linear-gradient(135deg, #0066ff, #003399);
+    padding: 60px 0;
+    color: white;
+    text-align: center;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+/* Testimonials */
+.testimonials {
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.testimonial-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-box p {
+    font-style: italic;
+}
+
+/* FAQ */
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: #0066ff;
+}
+
+
+/* Footer */
+footer {
+    margin-top: 20px;
+}

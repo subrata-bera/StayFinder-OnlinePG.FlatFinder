@@ -1,0 +1,69 @@
+﻿/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Card Styling */
+.registration-form-card {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.registration-form-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+.registration-form-card h2 {
+    color: #007bff;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* File Input Styling */
+input[type="file"] {
+    border: 1px solid #ced4da;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background: #007bff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-form-card {
+        width: 90%;
+    }
+}

@@ -1,0 +1,45 @@
+﻿/* Navbar Styling */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    padding: 15px 50px;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Navbar Links */
+.navbar .nav-link {
+    color: white !important;
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Navbar Links Hover */
+.navbar .nav-link:hover {
+    color: #ffc107 !important; /* Yellow highlight */
+}
+
+/* Active Link */
+.navbar .nav-pills .nav-link.active {
+    background-color: transparent !important;
+    color: #ffc107 !important;
+    font-weight: bold;
+}
+
+/* Logo Styling */
+.navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: white !important;
+}
+
+/* Sticky Navbar on Scroll */
+.sticky-nav {
+    background: rgba(0, 0, 0, 0.9) !important;
+    transition: background 0.3s ease-in-out;
+}
