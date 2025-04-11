@@ -20,6 +20,9 @@ public partial class General_PropertyDetails : System.Web.UI.Page
                 if (int.TryParse(Request.QueryString["ID"], out propertyID))  // Validating if it's an integer
                 {
                     LoadPropertyDetails(propertyID);
+                    LoadReviews(propertyID);
+                    ShowRating(propertyID);
+
                 }
                 else
                 {
@@ -74,4 +77,88 @@ public partial class General_PropertyDetails : System.Web.UI.Page
     {
         Response.Redirect("~/General/FindPg_Mess.aspx");
     }
+
+    protected void btnSubmitReview_Click(object sender, EventArgs e)
+    {
+        string user = txtUserName.Text;
+        int rating = Convert.ToInt32(ddlRating.SelectedValue);
+        string review = txtReview.Text;
+        int propertyID = Convert.ToInt32(Request.QueryString["ID"]);
+
+        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        using (SqlConnection conn = new SqlConnection(connStr))
+        {
+            if (txtReview.Text == "" || txtUserName.Text == "" || ddlRating.Text == "")
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please enter all fields.');", true);
+                return;
+            }
+            else
+            {
+                string query = "INSERT INTO PropertyReviews (PropertyID, UserName, Rating, ReviewText) VALUES (@PropertyID, @UserName, @Rating, @ReviewText)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@PropertyID", propertyID);
+                cmd.Parameters.AddWithValue("@UserName", user);
+                cmd.Parameters.AddWithValue("@Rating", rating);
+                cmd.Parameters.AddWithValue("@ReviewText", review);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                txtUserName.Text = "";
+                txtReview.Text = "";
+                ddlRating.ClearSelection();
+            }
+        }
+
+        LoadReviews(propertyID);
+        ShowRating(propertyID);
+    }
+
+    private void LoadReviews(int propertyID)
+    {
+        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        using (SqlConnection conn = new SqlConnection(connStr))
+        {
+            string query = "SELECT UserName, Rating, ReviewText, ReviewDate FROM PropertyReviews WHERE PropertyID = @PropertyID ORDER BY ReviewDate DESC";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@PropertyID", propertyID);
+
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            rptReviews.DataSource = reader;
+            rptReviews.DataBind();
+        }
+    }
+
+    public void ShowRating(int propertyID)
+    {
+        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        using (SqlConnection conn = new SqlConnection(connStr))
+        {
+            string ratingQuery = "SELECT AVG(CAST(Rating AS FLOAT)) FROM PropertyReviews WHERE PropertyID = @ID";
+            SqlCommand ratingCmd = new SqlCommand(ratingQuery, conn);
+            ratingCmd.Parameters.AddWithValue("@ID", propertyID);
+
+            conn.Open();
+            object avgRatingObj = ratingCmd.ExecuteScalar();
+            if (avgRatingObj != DBNull.Value)
+            {
+                double avgRating = Convert.ToDouble(avgRatingObj);
+                lblAvgRating.Text = avgRating.ToString("0.0");  // Format: 1 decimal
+            }
+            else
+            {
+                lblAvgRating.Text = "No rating yet";
+            }
+        }
+    }
+
+    protected void chatClick(object sender, EventArgs e)
+    {
+        Response.Redirect("~/General/UserLogin.aspx");
+
+    }
+
+
 }

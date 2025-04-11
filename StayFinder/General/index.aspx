@@ -36,9 +36,12 @@
     </div>
 </header>
 
+        
+
 
 
         <!-- Hero Section -->
+      
 <section class="hero-section d-flex align-items-center">
     <div class="container">
         <div class="row align-items-center">
@@ -61,8 +64,7 @@
     </div>
 </section>
 
-    
-
+   
     <!-- How It Works Section -->
     <section class="container text-center my-5">
         <h2 class="fw-bold">How It Works</h2>

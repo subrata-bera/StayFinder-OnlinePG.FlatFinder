@@ -43,7 +43,9 @@
             </div>
             <div class="sub-content px-5">
                 <div class="box p-3">
-<p class="fs-5"><asp:Label runat="server" ID="lblDescriptiojn"></asp:Label></p>              
+<p class="fs-5"><asp:Label runat="server" ID="lblDescriptiojn"></asp:Label></p>    
+                    <p class="fs-4 text-warning">Average Rating: <asp:Label ID="lblAvgRating" runat="server"></asp:Label> ⭐</p>
+          
                   <div class="type fs-4">
                     <p>Property Type: <asp:Label runat="server" id="lblType"></asp:Label></p>
                     <p class="mx-5"><asp:Label runat="server" id="lblGender"></asp:Label></p>
@@ -71,6 +73,7 @@
                             <div class="button">
                              <asp:Button runat="server" CssClass="btn btn-danger mx-2" Text="Back" OnClick="back_Click" />
                             <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="Book room"/>
+                               <asp:Button runat="server" CssClass="btn btn-primary" Text="Chat with us" OnClick="chatClick" />
                             </div>
 
                      <div class="rent fs-3 fw-bolder text-success">
@@ -81,6 +84,36 @@
             </div>
         </div>
     </div>
+
+
+
+        <h3 class="mt-4">Rate this Property</h3>
+<asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" Placeholder="Your name"></asp:TextBox><br />
+<asp:DropDownList ID="ddlRating" runat="server" CssClass="form-select">
+    <asp:ListItem Text="Select Rating" Value="0" />
+    <asp:ListItem Text="⭐" Value="1" />
+    <asp:ListItem Text="⭐⭐" Value="2" />
+    <asp:ListItem Text="⭐⭐⭐" Value="3" />
+    <asp:ListItem Text="⭐⭐⭐⭐" Value="4" />
+    <asp:ListItem Text="⭐⭐⭐⭐⭐" Value="5" />
+</asp:DropDownList><br />
+<asp:TextBox ID="txtReview" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" Placeholder="Write your review"></asp:TextBox><br />
+<asp:Button ID="btnSubmitReview" runat="server" CssClass="btn btn-primary" Text="Submit Review" OnClick="btnSubmitReview_Click" />
+       
+<hr />
+<h3>Reviews</h3>
+<asp:Repeater ID="rptReviews" runat="server">
+    <ItemTemplate>
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5><%# Eval("UserName") %> - <%# new String('⭐', Convert.ToInt32(Eval("Rating"))) %></h5>
+                <p><%# Eval("ReviewText") %></p>
+                <small class="text-muted"><%# Eval("ReviewDate", "{0:MMM dd, yyyy}") %></small>
+            </div>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
+
     </form>
 
         <script src="JavaScript/PageLoader.js"></script>
