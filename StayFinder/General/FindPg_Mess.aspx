@@ -4,12 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find PG/Mess</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="StyleSheets/FindPg_Mess.css" rel="stylesheet" />
     <link href="StyleSheets/Navbar.css" rel="stylesheet" />
     <link href="StyleSheets/PageLoader.css" rel="stylesheet" />
+    <style>
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* removes animation gap */
+    }
+</style>
+
 </head>
 <body>
     <div id="loader">
@@ -23,15 +31,24 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
-                <li class="nav-item"><a href="PropertyOwnerLogin.aspx" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="AdminLogin.aspx" class="nav-link">Admin</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
+
+        <!-- Dropdown for Login -->
+        <li class="nav-item dropdown hover-dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../User/Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="PropertyOwnerLogin.aspx">Property Owner Login</a></li>
+                <li><a class="dropdown-item" href="AdminLogin.aspx">Admin Login</a></li>
             </ul>
-        </div>
+        </li>
+
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    </ul>
+</div>
     </div>
 </header>
          <!-- Search and Filter Section -->
@@ -73,7 +90,7 @@
                 <h3><%# Eval("PropertyName") %></h3>
                 <p><i class="bi bi-geo-alt"></i> <%# Eval("Location") %></p>
                 <p><i class="bi bi-house"></i> Type: <%# Eval("Gender") %></p>
-                <p><i class="bi bi-tools"></i> Facilities: <%# Eval("Facilities_1") %>, <%# Eval("Facilities_2") %>, <%# Eval("Facilities_3") %></p>
+               <%-- <p><i class="bi bi-tools"></i> Facilities: <%# Eval("Facilities_1") %>, <%# Eval("Facilities_2") %>, <%# Eval("Facilities_3") %></p>--%>
                 <p><i class="bi bi-person"></i> Owner: <%# Eval("OwnerName") %></p>
                 <p><i class="bi bi-phone"></i> Contact: <%# Eval("Contact") %></p>
                 <div class="d-flex justify-content-between align-items-center">

@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class UserLogin : System.Web.UI.Page
 {
-    SqlDataAdapter adp = new SqlDataAdapter("select * from PropertyOwnerDetails", @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234");
+    SqlDataAdapter adp = new SqlDataAdapter("select * from UserDetails", ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
     DataTable dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -33,7 +34,7 @@ public partial class UserLogin : System.Web.UI.Page
                 {
                     Session["Email"] = dr[0]["Email"].ToString();
                     Session["Name"] = dr[0]["Name"].ToString();
-                    Response.Redirect("~/User/Chat.aspx");
+                    Response.Redirect("~/User/SiteVisit_Request.aspx");
                 }
                 else
                 {

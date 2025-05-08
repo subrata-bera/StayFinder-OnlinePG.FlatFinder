@@ -4,9 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Property Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />
+     
 </head>
 <body>
      <form id="form1" runat="server">
@@ -23,22 +25,22 @@
             </a>
           </li>
           <li>
-            <a href="AddProperty.aspx" class="nav-link text-white">
+            <a href="TermsAndConditions.aspx" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"></svg>
               Add Property
             </a>
 
           </li>
           <li>
-            <a href="PropertyList.aspx" class="nav-link text-white active">
+            <a href="PropertyList" class="nav-link text-white active">
               <svg class="bi pe-none me-2" width="16" height="16"></svg>
               My properties
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a href="SiteView_Requests.aspx" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"></svg>
-              Nav_2
+         Site-View Requests
             </a>
           </li>
           <li>
@@ -65,6 +67,7 @@
       </div> 
 
             <div class="content w-100" style=" font-family: 'Poppins', sans-serif;">
+                  
                 <div class="container">
     <div class="property-form-card">
         <h2>Edit Property</h2>

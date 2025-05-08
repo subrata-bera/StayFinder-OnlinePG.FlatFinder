@@ -1,0 +1,40 @@
+.booking-requests{
+  width: 80%;
+  margin: auto;
+  /* border: 2px solid red; */
+}
+.container{
+  border: 2px solid #0D6EFD;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 15px;
+}
+.container .picture img{
+  width: 100px;
+  border-radius: 10px;
+}
+.container .top{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.container .down{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .down .down-details{
+  display: flex;
+  gap: 40px;
+}
+.container .down .buttons{
+  display: flex;
+  align-items: center;
+}
+.label{
+  /* border: 1px solid red; */
+  font-weight: bold;
+}
+.btn{
+  width: 100px;
+}

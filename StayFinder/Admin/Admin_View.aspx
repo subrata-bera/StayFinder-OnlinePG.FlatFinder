@@ -4,9 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-</head>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pending Property</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         .content {
             width: 100%;
@@ -24,8 +26,22 @@
             position: sticky;
             top: 0;
         }
+
+         .property-img {
+             width: 100%;
+    height: 250px; /* fixed height */
+    object-fit: cover;
+    object-position: center;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
     </style>
     <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
+</head>
+     
 <body>
      <div id="loader">
     <div class="spinner"></div>
@@ -70,54 +86,78 @@
       </div>  
        <div class="content">
 
- <div class="main mt-5 pt-5 w-100">
-          <div class="heading text-center mt-1">
-            <h2><asp:Label runat="server" ID="lblName"></asp:Label></h2>
-          </div>
-        <div class="content mt-4">
-            <div class="image">
-<asp:Image ID="PropertyImage" runat="server" CssClass="img-fluid" />
-            </div>
-            <div class="sub-content px-5">
-                <div class="box p-3">
-<p class="fs-5"><asp:Label runat="server" ID="lblDescriptiojn"></asp:Label></p>              
-                  <div class="type fs-4">
-                    <p>Property Type: <asp:Label runat="server" id="lblType"></asp:Label></p>
-                    <p class="mx-5"><asp:Label runat="server" id="lblGender"></asp:Label></p>
-                </div>
-                <p class="fs-4">Facilities: <asp:Label runat="server" id="lblFacilities_1"></asp:Label> <asp:Label runat="server" id="lblFacilities_2"></asp:Label> <asp:Label runat="server" id="lblFacilities_3"></asp:Label></p>
-                <p class="fs-4">Number of rooms: <asp:Label runat="server" id="lblNumberOfRooms"></asp:Label></p>
-                <p class="fs-4">Owner: <asp:Label runat="server" id="lblOwnerName"></asp:Label></p>
-                
+ <div class="main pt-1 w-100">
+         <div class="container mt-4 mb-5">
+            <h2 class="text-center mb-4">Property Details</h2>
 
-                <div class="location">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                      </svg>
-                 <span class="mx-3 fs-4"> <asp:Label runat="server" id="lblAddress"></asp:Label></span>
-                </div>
-                 <div class="contact my-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill mx-1" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-                      </svg>
-                      <span class="mx-2 fs-4"><asp:Label runat="server" id="lblContact"></asp:Label></span>
-                 </div>
+            <div class="card shadow p-4 mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-title">Property Info</div>
+                        <p><strong>Name:</strong> <asp:Label ID="lblName" runat="server" /></p>
+                        <p><strong>Type:</strong> <asp:Label ID="lblType" runat="server" /></p>
+                        <p><strong>Address:</strong> <asp:Label ID="lblAddress" runat="server" /></p>
+                        <p><strong>Landmark:</strong> <asp:Label ID="lblLandmark" runat="server" /></p>
                     </div>
-                           <div class="footer my-5 py-3">
+                    <div class="col-md-6">
+                        <div class="section-title">Facilities & Rules</div>
+                        <p><strong>Facilities:</strong> 
+                            <asp:Label ID="lblFacilities_1" runat="server" />
+                            <asp:Label ID="lblFacilities_2" runat="server" />
+                            <asp:Label ID="lblFacilities_3" runat="server" />
+                            <asp:Label ID="lblFacilities_4" runat="server" />
+                            <asp:Label ID="lblFacilities_5" runat="server" />
+                            <asp:Label ID="lblFacilities_6" runat="server" />
+                            <asp:Label ID="lblFacilities_7" runat="server" />
+                            <asp:Label ID="lblFacilities_8" runat="server" />
+                            <asp:Label ID="lblFacilities_9" runat="server" />
 
-                            <div class="button">
-                             <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger mx-2" Text="Reject" OnClick="Reject_Click" />
-                            <asp:Button ID="btnApprove" runat="server" CssClass="btn btn-success" Text="Approve" OnClick="Approve_Click"/>
-                            </div>
+                        </p>
+                        <p><strong>Rules:</strong>
+                             <asp:Label ID="lblRules_1" runat="server" />
+                            <asp:Label ID="lblRules_2" runat="server" />
+                            <asp:Label ID="lblRules_3" runat="server" />
+                            <asp:Label ID="lblRules_4" runat="server" />
 
-                     <div class="rent fs-3 fw-bolder text-success">
-                        <p><asp:Label runat="server" id="lblRent"></asp:Label>/month</p>
+                        </p>
+                        <p><strong>Description:</strong> <asp:Label ID="lblDescription" runat="server" /></p>
                     </div>
-                           </div>
-               
+                </div>
             </div>
-        </div>
-    </div>           
+
+            <div class="card shadow p-4 mb-4">
+                <div class="section-title mb-3">Property Images</div>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <asp:Image ID="img1" runat="server" CssClass="img-fluid property-img rounded" />
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Image ID="img2" runat="server" CssClass="img-fluid property-img rounded" />
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Image ID="img3" runat="server" CssClass="img-fluid property-img rounded" />
+                    </div>
+                </div>
+            </div>
+
+             <div class="card shadow p-4 mb-4">
+                <div class="section-title">Owner Details</div>
+                <p><strong>Rent:</strong> <asp:Label ID="lblRent" runat="server" />/Month</p>
+                <p><strong>Number of Rooms:</strong> <asp:Label ID="lblNumberOfRooms" runat="server" /></p>
+                 <p><strong>Only for:</strong> <asp:Label ID="lblGender" runat="server" /></p>
+            </div>
+
+            <div class="card shadow p-4 mb-4">
+                <div class="section-title">Owner Details</div>
+                <p><strong>Name:</strong> <asp:Label ID="lblOwnerName" runat="server" /></p>
+                <p><strong>Contact:</strong> <asp:Label ID="lblContact" runat="server" /></p>
+            </div>
+
+            <div class="text-center mt-4">
+                <asp:Button ID="btnApprove" runat="server" CssClass="btn btn-success px-4 me-2" Text="Approve" OnClick="Approve_Click"/>
+                <asp:Button ID="btnReject" runat="server" CssClass="btn btn-danger px-4" Text="Reject" OnClick="Reject_Click"/>
+            </div>
+        </div>  
    </div>
       
     </form>

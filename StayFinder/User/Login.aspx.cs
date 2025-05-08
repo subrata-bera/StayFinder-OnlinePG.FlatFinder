@@ -8,15 +8,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class General_PropertyOwnerLogin : System.Web.UI.Page
+public partial class User_Login : System.Web.UI.Page
 {
-    SqlDataAdapter adp = new SqlDataAdapter("select * from PropertyOwnerDetails", ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
+    SqlDataAdapter adp = new SqlDataAdapter(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
     DataTable dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
         adp.Fill(dt);
     }
-    protected void signin_Click(object sender, EventArgs e)
+    protected void signinClick(object sender, EventArgs e)
     {
         if (txtEmail.Text == "" || txtPassword.Text == "")
         {
@@ -32,7 +32,7 @@ public partial class General_PropertyOwnerLogin : System.Web.UI.Page
                 {
                     Session["Email"] = dr[0]["Email"].ToString();
                     Session["Name"] = dr[0]["Name"].ToString();
-                    Response.Redirect("~/PropertyOwner/PropertyOwner_Home.aspx");
+                    Response.Redirect("~/User/Home.aspx");
                 }
                 else
                 {
@@ -45,7 +45,7 @@ public partial class General_PropertyOwnerLogin : System.Web.UI.Page
                 lblError.ForeColor = System.Drawing.Color.Red;
                 lblError.Text = "Invalid Email or Password.";
             }
-           
+
         }
     }
 }

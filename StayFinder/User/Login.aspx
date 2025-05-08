@@ -1,14 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserLogin.aspx.cs" Inherits="UserLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="User_Login" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Login - User</title>
+    <title>Login - User</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="StyleSheets/Navbar.css" rel="stylesheet" />
-    <link href="StyleSheets/PageLoader.css" rel="stylesheet" />
+    <link href="../General/StyleSheets/Navbar.css" rel="stylesheet" />
+    <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
      <style>
             #lblSignup {
                 text-decoration: none;
@@ -22,22 +21,19 @@
                     background-color: #0D6EFD;
                     color: #ffff;
                 }
-   
+
+         
     .hover-dropdown:hover .dropdown-menu {
         display: block;
         margin-top: 0; /* removes animation gap */
     }
 
 
-        </style>
-
+         </style>
 </head>
 <body>
-   <div id="loader">
-    <div class="spinner"></div>
-</div>
     <form id="form1" runat="server">
-    <div>
+   <div>
           <header class="navbar navbar-expand-lg">
     <div class="container">
         <a href="index.aspx" class="navbar-brand">Stay Finder</a>
@@ -46,16 +42,16 @@
         </button>
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
-        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
+        <li class="nav-item"><a href="../General/index.aspx" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="../General/FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
 
         <!-- Dropdown for Login -->
         <li class="nav-item dropdown hover-dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../User/Login.aspx">User Login</a></li>
-                <li><a class="dropdown-item" href="PropertyOwnerLogin.aspx">Property Owner Login</a></li>
-                <li><a class="dropdown-item" href="AdminLogin.aspx">Admin Login</a></li>
+                <li><a class="dropdown-item" href="Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="../General/PropertyOwnerLogin.aspx">Property Owner Login</a></li>
+                <li><a class="dropdown-item" href="../General/AdminLogin.aspx">Admin Login</a></li>
             </ul>
         </li>
 
@@ -83,7 +79,7 @@
        
         
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary w-100 py-2" Text="Sign in" OnClick="signinClick" />
-        <asp:HyperLink ID="lblSignup" runat="server" CssClass="mt-3 text-center text-body-seconday" Text="Sign Up" NavigateUrl="UserRegistration.aspx"></asp:HyperLink>
+        <asp:HyperLink ID="lblSignup" runat="server" CssClass="mt-3 text-center text-body-seconday" Text="Sign Up" NavigateUrl="../General/UserRegistration.aspx"></asp:HyperLink>
     </div>
 
 </div>
@@ -93,7 +89,8 @@
     </div>
     </form>
 
-    <script src="JavaScript/PageLoader.js"></script>
+
+     <script src="../General/JavaScript/PageLoader.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 

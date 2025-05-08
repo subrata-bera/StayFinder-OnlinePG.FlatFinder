@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
 public partial class General_AdminLogin : System.Web.UI.Page
 {
-    SqlDataAdapter adp = new SqlDataAdapter("select * from AdminDetails", @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234");
+    SqlDataAdapter adp = new SqlDataAdapter("select * from AdminDetails", ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
     DataTable dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {

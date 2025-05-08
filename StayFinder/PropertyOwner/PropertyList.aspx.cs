@@ -7,10 +7,11 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Configuration;
 
 public partial class PropertyOwner_PropertyList : System.Web.UI.Page
 {
-    SqlConnection conn = new SqlConnection("Data Source=SUBRATA\\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234");
+    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -87,7 +88,7 @@ public partial class PropertyOwner_PropertyList : System.Web.UI.Page
                 {
                     int id = Convert.ToInt32(e.CommandArgument);
 
-                    using (SqlConnection conn = new SqlConnection("Data Source=SUBRATA\\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234"))
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString))
                     {
                         SqlCommand cmd = new SqlCommand("DeleteProperty", conn);
                         cmd.CommandType = CommandType.StoredProcedure;

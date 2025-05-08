@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
+
 public partial class General_FIndPg_Mess : System.Web.UI.Page
 {
-    SqlConnection conn = new SqlConnection("Data Source=SUBRATA\\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234");
+    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -37,7 +37,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
     }
     private void LoadPropertyDetails(int propertyID)
     {
-        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        string connStr = ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(connStr))
         {
             string query = "SELECT * FROM PropertyDetails WHERE ID = @ID";
@@ -52,9 +52,22 @@ public partial class General_PropertyDetails : System.Web.UI.Page
                 lblName.Text = reader["PropertyName"].ToString();
                 lblDescriptiojn.Text = reader["Description"].ToString();
                 lblType.Text = reader["PropertyType"].ToString();
-                lblFacilities_1.Text = reader["Facilities_1"].ToString();
-                lblFacilities_2.Text = reader["Facilities_2"].ToString();
-                lblFacilities_3.Text = reader["Facilities_3"].ToString();
+                lblFacilities_1.Text = reader["Facility_Wifi"].ToString();
+                lblFacilities_2.Text = reader["Facility_Parking"].ToString();
+                lblFacilities_3.Text = reader["Facility_Parking"].ToString();
+                lblFacilities_4.Text = reader["Facility_WashingMachine"].ToString();
+                lblFacilities_5.Text = reader["Facility_Geyser"].ToString();
+                lblFacilities_6.Text = reader["Facility_CCTV"].ToString();
+                lblFacilities_7.Text = reader["Facility_Security"].ToString();
+                lblFacilities_8.Text = reader["Facility_AC"].ToString();
+                lblFacilities_9.Text = reader["Facility_Water"].ToString();
+
+                rules_1.Text = reader["Rules_NoSmoking"].ToString();
+                rules_2.Text = reader["Rules_NoAlcohol"].ToString();
+                rules_1.Text = reader["Rules_NoPets"].ToString();
+                rules_1.Text = reader["Rules_OnlyStudents"].ToString();
+
+
                 lblNumberOfRooms.Text = reader["NumberOfRooms"].ToString();
                 lblOwnerName.Text = reader["OwnerName"].ToString();
                 lblAddress.Text = reader["Location"].ToString();
@@ -63,9 +76,21 @@ public partial class General_PropertyDetails : System.Web.UI.Page
                 lblGender.Text = reader["Gender"].ToString();
 
                 // Load Image
+               
+               
+
                 byte[] imageBytes = (byte[])reader["PropertyImage"];
                 string imageBase64 = Convert.ToBase64String(imageBytes);
+                PropertyImage1.ImageUrl = "data:image/png;base64," + imageBase64;
                 PropertyImage.ImageUrl = "data:image/png;base64," + imageBase64;
+
+                byte[] imageBytes2 = (byte[])reader["PropertyImage_2"];
+                string imageBase64_2 = Convert.ToBase64String(imageBytes2);
+                PropertyImage2.ImageUrl = "data:image/png;base64," + imageBase64_2;
+
+                byte[] imageBytes3 = (byte[])reader["PropertyImage_3"];
+                string imageBase64_3 = Convert.ToBase64String(imageBytes3);
+                PropertyImage3.ImageUrl = "data:image/png;base64," + imageBase64_3;
             }
             else
             {
@@ -85,7 +110,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
         string review = txtReview.Text;
         int propertyID = Convert.ToInt32(Request.QueryString["ID"]);
 
-        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        string connStr = ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(connStr))
         {
             if (txtReview.Text == "" || txtUserName.Text == "" || ddlRating.Text == "")
@@ -117,7 +142,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
 
     private void LoadReviews(int propertyID)
     {
-        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        string connStr = ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(connStr))
         {
             string query = "SELECT UserName, Rating, ReviewText, ReviewDate FROM PropertyReviews WHERE PropertyID = @PropertyID ORDER BY ReviewDate DESC";
@@ -133,7 +158,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
 
     public void ShowRating(int propertyID)
     {
-        string connStr = @"Data Source=SUBRATA\SQLEXPRESS;Initial Catalog=StayFinder;User ID=sa;Password=1234";
+        string connStr = ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(connStr))
         {
             string ratingQuery = "SELECT AVG(CAST(Rating AS FLOAT)) FROM PropertyReviews WHERE PropertyID = @ID";
@@ -154,9 +179,18 @@ public partial class General_PropertyDetails : System.Web.UI.Page
         }
     }
 
-    protected void chatClick(object sender, EventArgs e)
+     protected void BookingClick(object sender, EventArgs e)
     {
-        Response.Redirect("~/General/UserLogin.aspx");
+        string propertyId = Request.QueryString["ID"]; // ✅ Correct query string key
+        if (!string.IsNullOrEmpty(propertyId))
+        {
+            Session["SelectedPropertyId"] = propertyId;
+            Response.Redirect("~/General/UserLogin.aspx");
+        }
+        else
+        {
+            Response.Write("<script>alert('Property ID missing');</script>");
+        }
 
     }
 
