@@ -229,7 +229,7 @@
     <!-- Action buttons -->
     <div class="text-center my-4">
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger mx-2" Text="Back" OnClick="back_Click" />
-        <asp:Button ID="Button2" runat="server" CssClass="btn btn-success mx-2" Text="On-Site Visit" OnClick="BookingClick" />
+        <asp:Button ID="Button2" runat="server" CssClass="btn btn-success mx-2" Text="Book now" OnClick="BookingClick" />
         <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary mx-2" Text="Chat with us" />
     </div>
 

@@ -10,35 +10,38 @@
                 <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
 
     <style>
-        @media print {
-            .no-print {
-                display: none;
-            }
-        }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-        }
-        .form-box {
-            border: 1px solid #ccc;
+        .confirmation-card {
+            max-width: 700px;
+            margin: 40px auto;
             padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: auto;
-            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
-        .form-title {
-            font-size: 24px;
+
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-label {
             font-weight: 600;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .label {
-            font-weight: 500;
             color: #555;
         }
-        .value {
-            font-weight: 600;
-            color: #000;
+
+        .info-value {
+            font-weight: 500;
+            color: #222;
+        }
+
+        .print-btn {
+            margin-top: 30px;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -47,56 +50,86 @@
             <div class="spinner"></div>
         </div>
     <form id="form1" runat="server">
-  <div class="container py-5">
-            <div class="form-box shadow">
-                <div class="text-center form-title">Site Visit Acknowledgment Form</div>
-                <hr />
+   <div class="confirmation-card">
+            <div class="confirmation-header">
+                <h2 class="text-success">Acknowledgement</h2>
+                <p class="text-muted">Thank you for your request! Here are your Request details.</p>
+            </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6"><span class="label">Request ID:</span> <asp:Label runat="server" ID="lblId"></asp:Label></div>
-                    <div class="col-md-6"><span class="label">Request Date:</span> <asp:Label runat="server" ID="lblRequestDate"></asp:Label></div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Name</div>
+                    <div class="info-value"><asp:Label ID="lblUserName" runat="server" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-label">Appointment Date</div>
+                    <div class="info-value"><asp:Label ID="lblBookingDate" runat="server" /></div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Request Date</div>
+                    <div class="info-value"><asp:Label ID="lblRequestDate" runat="server" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-label">Request ID</div>
+                    <div class="info-value"><asp:Label ID="lblBookingID" runat="server" /></div>
+                </div>
+            </div>
+
+         <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Gender</div>
+                    <div class="info-value"><asp:Label ID="lblGender" runat="server" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-label">Number of People</div>
+                    <div class="info-value"><asp:Label ID="lblPeople" runat="server" /></div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Property Name</div>
+                    <div class="info-value"><asp:Label ID="lblPropertyName" runat="server" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-label">Property Type</div>
+                    <div class="info-value"><asp:Label ID="lblPropertyType" runat="server" /></div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Owner Name</div>
+                    <div class="info-value"><asp:Label ID="lblOwnerName" runat="server" /></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-label">Status</div>
+                    <div class="info-value"><asp:Label ID="lblStatus" runat="server" /></div>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6"><span class="label">Property Name:</span> <asp:Label runat="server" ID="lblPropertyName"></asp:Label></div>
-                <div class="col-md-6"><span class="label">Status:</span> <asp:Label runat="server" ID="lblStatus"></asp:Label></div>
-                </div>
-               
-                <div class="row mb-3">
-                     <div class="col-md-6"><span class="label">Property Address:</span> <asp:Label runat="server" ID="lblAddress"></asp:Label></div>
-                <div class="col-md-6"><span class="label">Visit Date:</span> <asp:Label runat="server" ID="lblVisitdate"></asp:Label></div>
-                </div>
+            </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6"><span class="label">Property Owner:</span> <asp:Label runat="server" ID="lblPropertyOwnerName"></asp:Label></div>
-                    <div class="col-md-6"><span class="label">Property Type:</span> <asp:Label runat="server" ID="lblType"></asp:Label></div>
-                </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6"><span class="label">Visitor Name:</span> <asp:Label runat="server" ID="lblVisitorName"></asp:Label></div>
-                <div class="col-md-6"><span class="label">Visitor Contact:</span> <asp:Label runat="server" ID="lblVisitorContact"></asp:Label></div>
-                    <div class="mt-3"><span class="label">Gender:</span> <asp:Label runat="server" ID="lblGender"></asp:Label></div>
+          <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Request Type</div>
+                    <div class="info-value"><asp:Label ID="lblRequestType" runat="server" /></div>
                 </div>
+             
 
-                <hr />
+            </div>
+       
 
-                <div class="mt-4">
-                    <div class="d-flex justify-content-between">
-                        <div class="text-start">
-                            <p class="label">Visitor Signature:</p>
-                            <div style="height: 50px; border-bottom: 1px solid #000;"></div>
-                        </div>
-                        <div class="text-end">
-                            <p class="label">Owner Signature:</p>
-                            <div style="height: 50px; border-bottom: 1px solid #000;"></div>
-                        </div>
-                    </div>
-                </div>
+           
 
-                <div class="text-center mt-4 no-print">
-                    <button type="button" class="btn btn-success" onclick="window.print()">Print Acknowledgment</button>
-                    <a href="Home.aspx" class="btn btn-secondary">Back</a>
-                </div>
+            <div class="text-center print-btn">
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger" Text="Back" OnClick="back_Click" />
+                <button type="button" class="btn btn-primary" onclick="window.print();">Print Confirmation</button>
             </div>
         </div>
     </form>

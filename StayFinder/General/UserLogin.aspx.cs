@@ -34,7 +34,7 @@ public partial class UserLogin : System.Web.UI.Page
                 {
                     Session["Email"] = dr[0]["Email"].ToString();
                     Session["Name"] = dr[0]["Name"].ToString();
-                    Response.Redirect("~/User/SiteVisit_Request.aspx");
+                    Response.Redirect("~/User/RequestOptions.aspx");
                 }
                 else
                 {

@@ -52,7 +52,7 @@
     <div class="confirmation-card">
             <div class="confirmation-header">
                 <h2 class="text-success">Acknowledgement</h2>
-                <p class="text-muted">Thank you for your request! Here are your site visit appointment details.</p>
+                <p class="text-muted">Thank you for your request! Here are your <asp:Label runat="server" ID="lblOptions"></asp:Label> details.</p>
             </div>
 
             <div class="row mb-3">
@@ -61,7 +61,7 @@
                     <div class="info-value"><asp:Label ID="lblUserName" runat="server" /></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="info-label">Booking Date</div>
+                    <div class="info-label">Appointment Date</div>
                     <div class="info-value"><asp:Label ID="lblBookingDate" runat="server" /></div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                     <div class="info-value"><asp:Label ID="lblRequestDate" runat="server" /></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="info-label">Booking ID</div>
+                    <div class="info-label">Request ID</div>
                     <div class="info-value"><asp:Label ID="lblBookingID" runat="server" /></div>
                 </div>
             </div>
@@ -110,6 +110,16 @@
                     <div class="info-label">Status</div>
                     <div class="info-value"><asp:Label ID="lblStatus" runat="server" /></div>
                 </div>
+
+            </div>
+
+
+          <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="info-label">Request Type</div>
+                    <div class="info-value"><asp:Label ID="lblRequestType" runat="server" /></div>
+                </div>
+             
 
             </div>
        

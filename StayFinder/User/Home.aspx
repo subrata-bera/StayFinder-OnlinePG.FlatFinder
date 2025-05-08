@@ -75,7 +75,7 @@
     <div class="dashboard-header position-relative d-flex justify-content-between align-items-center px-4">
         <div>
             <h2 class="mb-1">Hi, <asp:Label runat="server" ID="lblUserName"></asp:Label></h2>
-            <p class="mb-0">Check your Site-Visit requests details.</p>
+            <p class="mb-0">Check your requests details.</p>
         </div>
         <div>
             <asp:Button runat="server" CssClass="btn btn-light text-primary fw-semibold" Text="Logout" OnClick="Logout_Click" />
@@ -89,8 +89,8 @@
             <!-- Payment History Card -->
             <div class="col-md-12">
                 <div class="dashboard-card">
-                    <h5>Site-Visit requests</h5>
-                    <p>Here is the list of Site-Visit requests:</p>
+                    <h5>Site-Visit & Direct booking requests</h5>
+                    <p>Here is the list of Site-Visit & Direct booking requests:</p>
 
                     <!-- Payment Table -->
                     <table class="table table-striped table-bordered">
@@ -98,12 +98,13 @@
                             <tr>
                                 <th>Request ID</th>
                                 <th>Property Name</th>
-                                <th>Site-Visit Date</th>
+                                <th>Request Type</th>
                                 <th>Document</th>
-                                <th>Document Number</th>
                                 <th>Uploaded Document</th>
                                 <th>Status</th>
                                 <th>Download Acknowledgment</th>
+                                <th></th>
+                                
                             </tr>
                         </thead>
                         <tbody id="requestshistory">
@@ -112,16 +113,11 @@
                             <tr>
                                 <td><%# Eval("ID") %></td>
                                 <td><%# Eval("PropertyName") %></td>
-                                <td><%# Eval("BookingDate","{0:dd-MM- yyyy}") %></td>
+                                <td><%# Eval("RequestType") %></td>
                                 <td><%# Eval("DocumentType") %></td>
-                                <td><%# Eval("DocumentsNumber") %></td>
                                 <td><a class="text-primary text-decoration-none" href='ViewDocument.aspx?ID=<%#Eval("ID") %>'>View</a></td>
                                 <td><%# Eval("Status") %></td>
-                                <td><asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger" 
-    OnClientClick="return confirm('Are you sure you want to cancel this request?');"
-    CommandName="CancelRequest" CommandArgument='<%# Eval("ID") %>'>Cancel Request</asp:LinkButton>
-</td>
-                                <td><a href='Acknowledgement.aspx?ID=<%#Eval("ID") %>'>
+                                 <td><a href='Acknowledgement.aspx?ID=<%#Eval("ID") %>'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-printer-fill" viewBox="0 0 16 16">
                                     <path
@@ -130,6 +126,11 @@
                                         d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
                                 </svg>
                                     </a></td>
+                                <td><asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger" 
+    OnClientClick="return confirm('Are you sure you want to cancel this request?');"
+    CommandName="CancelRequest" CommandArgument='<%# Eval("ID") %>'>Cancel Request</asp:LinkButton>
+</td>
+                               
                             </tr>
                  </ItemTemplate>
           </asp:Repeater>

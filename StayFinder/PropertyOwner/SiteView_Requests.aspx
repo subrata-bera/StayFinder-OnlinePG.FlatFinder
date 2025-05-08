@@ -126,6 +126,13 @@
                       </p>
                     </div>
 
+                       <div class="RequestType">
+                      <p class="label">Request Type</p>
+                      <p>
+                        <%# Eval("RequestType") %>
+                      </p>
+                    </div>
+
                   </div>
 
                   <div class="buttons">

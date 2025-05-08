@@ -10,7 +10,7 @@ using System.Configuration;
 
 public partial class User_Login : System.Web.UI.Page
 {
-    SqlDataAdapter adp = new SqlDataAdapter(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
+    SqlDataAdapter adp = new SqlDataAdapter("select * from UserDetails", ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
     DataTable dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {

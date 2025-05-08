@@ -107,6 +107,10 @@
                     <label class="form-label fw-semibold">Document Type</label>
                     <p><asp:Label runat="server" ID="lblDocumentType" CssClass="form-control-plaintext"></asp:Label></p>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Request Type</label>
+                    <p><asp:Label runat="server" ID="lblRequestType" CssClass="form-control-plaintext"></asp:Label></p>
+                </div>
             </div>
 
             <!-- Column 2 -->

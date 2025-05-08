@@ -1,4 +1,4 @@
-﻿  using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -56,6 +56,7 @@ public partial class User_SiteVisit_Request : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@Gender", gender.Text);
             cmd.Parameters.AddWithValue("@BookingDate", txtDate.Text);
             cmd.Parameters.AddWithValue("@PropertyId", Session["SelectedPropertyId"].ToString());
+            cmd.Parameters.AddWithValue("@RequestType", Session["RequestType"].ToString());
 
 
 

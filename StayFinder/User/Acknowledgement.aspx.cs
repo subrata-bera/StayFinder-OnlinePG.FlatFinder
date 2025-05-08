@@ -47,17 +47,30 @@ public partial class User_Acknowledgement : System.Web.UI.Page
         SqlDataReader reader = cmd.ExecuteReader();
         if (reader.Read())
         {
-            lblId.Text = reader["ID"].ToString();
+            lblUserName.Text = reader["UserName"].ToString();
             lblRequestDate.Text = Convert.ToDateTime(reader["RequestDate"]).ToString("dd MMMM yyyy");
+            lblBookingDate.Text = Convert.ToDateTime(reader["BookingDate"]).ToString("dd MMMM yyyy");
+            lblBookingID.Text = reader["ID"].ToString();
             lblPropertyName.Text = reader["PropertyName"].ToString();
-            lblStatus.Text = reader["Status"].ToString();
-            lblAddress.Text = reader["Address"].ToString();
-            lblRequestDate.Text = Convert.ToDateTime(reader["Bookingdate"]).ToString("dd MMMM yyyy");
-            lblPropertyOwnerName.Text = reader["Ownername"].ToString();
-            lblType.Text = reader["PropertyType"].ToString();
-            lblVisitorName.Text = reader["UserName"].ToString();
-            lblVisitorContact.Text = reader["Mobile"].ToString();
+            lblOwnerName.Text = reader["OwnerName"].ToString();
+            lblPropertyType.Text = reader["PropertyType"].ToString();
+            lblPeople.Text = reader["NumberOfPeople"].ToString();
             lblGender.Text = reader["Gender"].ToString();
+            lblStatus.Text = reader["Status"].ToString();
+            lblRequestType.Text = reader["RequestType"].ToString();
+        }
+    }
+
+    protected void back_Click(object sender, EventArgs e)
+    {
+        if (Session["SelectedPropertyId"] != null)
+        {
+            string propertyId = Session["SelectedPropertyId"].ToString();
+            Response.Redirect("~/General/PropertyDetails.aspx?ID=" + propertyId);
+        }
+        else
+        {
+            Response.Redirect("~/User/Home.aspx"); // If session missing, go to FindPg page
         }
     }
 }

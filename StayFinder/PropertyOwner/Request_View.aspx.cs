@@ -76,6 +76,7 @@ public partial class PropertyOwner_Request_View : System.Web.UI.Page
             lblBookingdate.Text = Convert.ToDateTime(reader["BookingDate"]).ToString("dd-MM-yyyy");
             lblDocumentType.Text = reader["DocumentType"].ToString();
             lblDocumentNumber.Text = reader["DocumentsNumber"].ToString();
+            lblRequestType.Text = reader["RequestType"].ToString();
         }
         conn.Close();
     }
