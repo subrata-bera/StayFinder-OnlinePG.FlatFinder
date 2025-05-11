@@ -13,6 +13,7 @@ StayFinder is a **property rental and listing platform** that helps users find *
 - **User Authentication**: Secure login and registration for admins, property owners, and users.
 - **Property Listing**: Owners can add property details, including name, type, location, rent, number of rooms, and facilities.
 - **Property Approval System**: Admin verifies and approves listings before they are visible.
+- **Booking And Site-view request System**: Users can send booking requests or Site-View Request for properties. Requests remain in "Pending" status until the property owner approves or rejects them.
 - **Search and Filters**: Users can filter properties by **location, rent, number of rooms, and facilities**.
 - **Property Wishlist**: Users can save properties to their wishlist for later viewing.
 - **Contact System**: Property details include owner contact information for inquiries.
@@ -52,6 +53,15 @@ The **StayFinder** database consists of the following tables:
 - ApprovalStatus (Default: Pending)
 - ApprovedBy
 - ApprovedDate
+
+- ### 3. **Booking and site-view request**
+- RequestId (Primary Key, Auto-Increment)
+- PropertyID (Foreign Key from PropertyDetails)
+- UserEmail (Foreign Key from UserDetails)
+- RequestDate
+- Status (Pending/Approved/Rejected)
+- ApprovedBy
+- ResponseDate
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, Bootstrap, JavaScript
