@@ -4,18 +4,42 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Home</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="StyleSheets/PageLoader.css" rel="stylesheet" />
-        <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Home</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+           
+        <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
+    <style>
+        .main-container {
+            display:flex;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+        }
+        .dashboard-title {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body>
     <div id="loader">
     <div class="spinner"></div>
 </div>
      <form id="form1" runat="server">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
+   <div class="main-container">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
           
           <span class="fs-4">Stay Finder</span>
         <hr>
@@ -51,6 +75,57 @@
           </ul>
         </div>
       </div>  
+
+
+
+
+
+
+         <div class="container py-5">
+            <h2 class="text-center mb-4 dashboard-title">Admin Dashboard</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card bg-primary text-white text-center p-4">
+                        <i class="bi bi-people-fill card-icon mb-2"></i>
+                        <h4>Registered Owners</h4>
+                        <asp:Label ID="lblOwners" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card bg-success text-white text-center p-4">
+                        <i class="bi bi-house-door-fill card-icon mb-2"></i>
+                        <h4>Total Properties</h4>
+                        <asp:Label ID="lblTotalProperties" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card bg-warning text-dark text-center p-4">
+                        <i class="bi bi-hourglass-split card-icon mb-2"></i>
+                        <h4>Pending Approvals</h4>
+                        <asp:Label ID="lblPending" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card bg-info text-dark text-center p-4">
+                        <i class="bi bi-check-circle-fill card-icon mb-2"></i>
+                        <h4>Approved Properties</h4>
+                        <asp:Label ID="lblApproved" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white text-center p-4">
+                        <i class="bi bi-x-circle-fill card-icon mb-2"></i>
+                        <h4>Rejected Properties</h4>
+                        <asp:Label ID="lblRejected" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
       
     </form>
 

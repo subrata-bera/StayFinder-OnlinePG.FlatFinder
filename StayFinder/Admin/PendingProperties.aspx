@@ -26,6 +26,11 @@
             position: sticky;
             top: 0;
         }
+        .lblError {
+            position: absolute;
+            top: 50%;
+            left: 50%
+        }
     </style>
     <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
 </head>
@@ -72,7 +77,7 @@
         </div>
       </div>  
        <div class="content">
-           <asp:Label ID="lblNoProperty" runat="server" Text="No Pending Property Found" CssClass="text-center text-danger fs-4" Visible="false"></asp:Label>
+           <center><asp:Label ID="lblNoProperty" runat="server" Text="No Pending Property Found" CssClass="text-center lblError text-danger fs-4 fw-bold" Visible="false"></asp:Label></center>
 
            <asp:Repeater ID="rptPropertyList" runat="server">
            <ItemTemplate>

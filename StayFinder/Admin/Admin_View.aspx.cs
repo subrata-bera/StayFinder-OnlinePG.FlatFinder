@@ -14,7 +14,7 @@ public partial class Admin_Admin_View : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.QueryString["ID"] != null)  // Checking if ID exists in query string
+            if (Request.QueryString["ID"] != null && Session["Name"] != null)  // Checking if ID exists in query string
             {
                 int propertyID;
                 if (int.TryParse(Request.QueryString["ID"], out propertyID))  // Validating if it's an integer
@@ -24,12 +24,12 @@ public partial class Admin_Admin_View : System.Web.UI.Page
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Property ID format');window.location='FindPg_Mess.aspx';</script>");
+                    Response.Write("~/General/AdminLogin.aspx");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Invalid or missing Property ID');window.location='FindPg_Mess.aspx';</script>");
+                Response.Write("~/General/AdminLogin.aspx");
             }
 
         }
@@ -89,9 +89,17 @@ public partial class Admin_Admin_View : System.Web.UI.Page
                 lblContact.Text = reader["Contact"].ToString();
 
                 lblNumberOfRooms.Text = reader["NumberOfRooms"].ToString();
-                lblRent.Text = reader["Rent"].ToString();
 
                 lblGender.Text = reader["Gender"].ToString();
+
+                lblSingleRoomUnit.Text = reader["SingleRoomUnit"].ToString();
+                lblSingleRoomRent.Text = reader["SingleRoomRent"].ToString();
+
+                lblDoubleRoomUnit.Text = reader["DoubleRoomUnit"].ToString();
+                lblDoubleRoomRent.Text = reader["DoubleRoomRent"].ToString() + " /Head";
+
+                lblTripleRoomUnit.Text = reader["TripleRoomUnit"].ToString();
+                lblTripleRoomRent.Text = reader["TripleRoomRent"].ToString() + " /Head";
 
                
             }

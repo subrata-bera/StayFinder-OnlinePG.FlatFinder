@@ -34,7 +34,7 @@
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
         <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
-        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
+        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find Your Stay</a></li>
 
         <!-- Dropdown for Login -->
         <li class="nav-item dropdown hover-dropdown">
@@ -51,31 +51,10 @@
 </div>
     </div>
 </header>
-         <!-- Search and Filter Section -->
-          <div class="container mt-5 pt-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
-                        <asp:ListItem Value="">All city</asp:ListItem>
-                        <asp:ListItem Value="Kolkata">Kolkata</asp:ListItem>
-                        <asp:ListItem Value="Midnapore">Midnapore</asp:ListItem>
-                        <asp:ListItem Value="Delhi">Delhi</asp:ListItem>
-                        <asp:ListItem Value="Mumbai">Mumbai</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-4">
-                    <asp:DropDownList ID="ddlRent" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlRent_SelectedIndexChanged">
-                        <asp:ListItem Value="">All rent type</asp:ListItem>
-                        <asp:ListItem Value="5000">Below 5000</asp:ListItem>
-                        <asp:ListItem Value="10000">Below 10000</asp:ListItem>
-                        <asp:ListItem Value="20000">Below 20000</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-            </div>
-        </div>
+       
         
 
-    <div class="album py-5 bg-body-tertiary">
+    <div class="album py-5 bg-body-tertiary mt-5">
         <div class="container">
             <center>
         <asp:Label runat="server" ID="noDataMessage" Visible="false" CssClass="text-center mx-5  text-danger fs-4">No data found</asp:Label>
@@ -90,7 +69,6 @@
                 <h3><%# Eval("PropertyName") %></h3>
                 <p><i class="bi bi-geo-alt"></i> <%# Eval("Location") %></p>
                 <p><i class="bi bi-house"></i> Type: <%# Eval("Gender") %></p>
-               <%-- <p><i class="bi bi-tools"></i> Facilities: <%# Eval("Facilities_1") %>, <%# Eval("Facilities_2") %>, <%# Eval("Facilities_3") %></p>--%>
                 <p><i class="bi bi-person"></i> Owner: <%# Eval("OwnerName") %></p>
                 <p><i class="bi bi-phone"></i> Contact: <%# Eval("Contact") %></p>
                 <div class="d-flex justify-content-between align-items-center">
@@ -98,8 +76,9 @@
                    <a href='PropertyDetails.aspx?ID=<%# Eval("ID") %>' class="btn btn-outline-secondary">View</a>
                     </div>
                     <div class="rent">
-                        <b>₹ <%# Eval("Rent") %>/Month</b>
-                    </div>
+    <b><%# "₹ " + Eval("MinRent") + " - ₹ " + Eval("MaxRent") + " / Month" %></b>
+</div>
+
                 </div>
             </div>
         </div>

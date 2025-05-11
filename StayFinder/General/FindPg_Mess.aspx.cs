@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
+
 public partial class General_FIndPg_Mess : System.Web.UI.Page
 {
     SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StayFinderConnection"].ConnectionString);
@@ -25,48 +26,56 @@ public partial class General_FIndPg_Mess : System.Web.UI.Page
             
         }
     }
-    protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        LoadPropertyDetails();
-    }
-
-    protected void ddlRent_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        LoadPropertyDetails();
-    }
+ 
     private void LoadPropertyDetails()
     {
-        string query = "SELECT * FROM PropertyDetails WHERE 1=1 AND ApprovalStatus = 'Approved'";
-        if (!string.IsNullOrEmpty(ddlCity.SelectedValue))
-        {
-            query += " AND City=@City";
-        }
-        if (!string.IsNullOrEmpty(ddlRent.SelectedValue))
-        {
-            query += " AND CAST(Rent AS INT) <= @Rent";
-        }
-        query += " ORDER BY ID DESC";
+        string query = "SELECT * FROM PropertyDetails WHERE 1=1 AND ApprovalStatus = 'Approved' order by ID desc";
+
+      
         using (SqlCommand cmd = new SqlCommand(query, conn))
         {
-            if (!string.IsNullOrEmpty(ddlCity.SelectedValue))
-            {
-                cmd.Parameters.AddWithValue("@City", ddlCity.SelectedValue);
-            }
-            if (!string.IsNullOrEmpty(ddlRent.SelectedValue))
-            {
-                cmd.Parameters.AddWithValue("@Rent", ddlRent.SelectedValue);
-            }
-            
+          
+
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            rptPropertyList.DataSource = reader;
-            rptPropertyList.DataBind();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
             conn.Close();
+
+            // Add MinRent and MaxRent columns
+            dt.Columns.Add("MinRent", typeof(int));
+            dt.Columns.Add("MaxRent", typeof(int));
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int s = row["SingleRoomRent"] != DBNull.Value ? Convert.ToInt32(row["SingleRoomRent"]) : 0;
+                int d = row["DoubleRoomRent"] != DBNull.Value ? Convert.ToInt32(row["DoubleRoomRent"]) : 0;
+                int t = row["TripleRoomRent"] != DBNull.Value ? Convert.ToInt32(row["TripleRoomRent"]) : 0;
+
+                int[] rents = new int[] { s, d, t };
+                var validRents = rents.Where(r => r > 0).ToList();
+
+                if (validRents.Any())
+                {
+                    row["MinRent"] = validRents.Min();
+                    row["MaxRent"] = validRents.Max();
+                }
+                else
+                {
+                    row["MinRent"] = 0;
+                    row["MaxRent"] = 0;
+                }
+            }
+
+
+            rptPropertyList.DataSource = dt;
+            rptPropertyList.DataBind();
+
             if (rptPropertyList.Items.Count == 0)
             {
-                noDataMessage.Visible = true; // Yaha Show Hoga
+                noDataMessage.Visible = true;
             }
         }
-    }   
+    }
     }
  

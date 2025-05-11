@@ -7,14 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Property</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-   <%-- <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />--%>
-     <%--<link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />--%>
-    <%--<style>
-        .spinner {
-            margin-right: 200px;
-        }
-
-    </style>--%>
+   
 
    <style>
         body {
@@ -24,7 +17,12 @@
 
         .container {
             max-width: 850px;
+           
         }
+        .btn-add {
+          margin-left: 42vw;
+
+       }
 
         .stepper {
             display: flex;
@@ -130,7 +128,8 @@
 
         .btn-success:hover {
             background: #059669;
-        }   
+        }
+       
     </style>
 </head>
 <body>
@@ -144,19 +143,21 @@
                 <div class="stepper mb-4">
                     <div class="step active"><div class="circle">1</div><div class="label">Basic</div></div>
                     <div class="step"><div class="circle">2</div><div class="label">Location</div></div>
-                    <div class="step"><div class="circle">3</div><div class="label">Facilities</div></div>
-                    <div class="step"><div class="circle">4</div><div class="label">Photos</div></div>
+                    <div class="step"><div class="circle">3</div><div class="label">Rooms</div></div>
+
+                    <div class="step"><div class="circle">4</div><div class="label">Facilities</div></div>
+                    <div class="step"><div class="circle">5</div><div class="label">Photos</div></div>
                 </div>
 
                 <!-- Step 1 -->
                 <div class="form-step active">
                     <div class="mb-3">
                         <label>Property Name</label>
-                        <asp:TextBox ID="txtPropertyName" runat="server" CssClass="form-control" />
+                        <asp:TextBox ID="txtPropertyName" runat="server" CssClass="form-control" required />
                     </div>
                     <div class="mb-3">
                         <label>Property Type</label>
-                        <asp:DropDownList ID="ddlPropertyType" runat="server" CssClass="form-select">
+                        <asp:DropDownList ID="ddlPropertyType" runat="server" CssClass="form-select" required>
                             <asp:ListItem Text="PG" />
                             <asp:ListItem Text="Mess" />
                             <asp:ListItem Text="Flat" />
@@ -164,7 +165,7 @@
                     </div>
                     <div class="mb-3">
                         <label>Tenant Gender</label>
-                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-select">
+                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-select" required>
                             <asp:ListItem Text="Male" />
                             <asp:ListItem Text="Female" />
                             <asp:ListItem Text="Any" />
@@ -172,7 +173,7 @@
                     </div>
                     <div class="mb-3">
                         <label>Owner Contact</label>
-                        <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" />
+                        <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" required />
                     </div>
                     <button type="button" class="btn btn-primary btn-next float-end">Next</button>
                 </div>
@@ -181,28 +182,78 @@
                 <div class="form-step">
                     <div class="mb-3">
                         <label>Full Address</label>
-                        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" TextMode="MultiLine" />
+                        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" TextMode="MultiLine" required />
                     </div>
                     <div class="mb-3">
                         <label>City</label>
-                        <asp:TextBox ID="txtCity" runat="server" CssClass="form-control" />
+                        <asp:TextBox ID="txtCity" runat="server" CssClass="form-control" required />
                     </div>
                     <div class="mb-3">
                         <label>Landmark</label>
-                        <asp:TextBox ID="txtLandmark" runat="server" CssClass="form-control" />   <%-- new added--%>
+                        <asp:TextBox ID="txtLandmark" runat="server" CssClass="form-control" required />   <%-- new added--%>
                     </div>
                     <div class="mb-3">
                         <label>Pin code</label>
-                        <asp:TextBox ID="txtpin" runat="server" CssClass="form-control" />         <%-- new added--%>
+                        <asp:TextBox ID="txtpin" runat="server" CssClass="form-control" required />         <%-- new added--%>
                     </div>
-                    <div class="mb-3">
-                        <label>Rent</label>
-                        <asp:TextBox ID="txtRent" runat="server" CssClass="form-control" TextMode="Number" min="0" />
-                    </div>
+                   
                     <div class="mb-3">
                         <label>Number of Rooms</label>
-                        <asp:TextBox ID="txtRooms" runat="server" CssClass="form-control" TextMode="Number" />
+                        <asp:TextBox ID="txtRooms" runat="server" CssClass="form-control" TextMode="Number" requireds/>
                     </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary btn-prev">Previous</button>
+                        <button type="button" class="btn btn-primary btn-next">Next</button>
+                    </div>
+                </div>
+
+
+                <%----------------Rooms details------------------%>
+
+                 <div class="form-step">
+                     <p>Single Room</p>
+                     <hr />
+                    <div class="row mb-3">
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtSingleRoomUnit" CssClass="form-control" placeholder="Enter Unit"></asp:TextBox>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtSingleRoomRent" CssClass="form-control" TextMode="Number" placeholder="Rent"></asp:TextBox>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtSingleRoomSize" CssClass="form-control" TextMode="Number" placeholder="Size (in sqft)"></asp:TextBox>
+                        </div>
+                    </div>
+                     <p>Double Room</p>
+                     <hr />
+                       <div class="row mb-3">
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtDoubleRoomUnit" CssClass="form-control" placeholder="Enter Unit"></asp:TextBox>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtDoubleRoomRent" CssClass="form-control" placeholder="Rent"></asp:TextBox>
+                        </div>
+                            <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtDoubleRoomSize" CssClass="form-control" TextMode="Number" placeholder="Size (in sqft)"></asp:TextBox>
+                        </div>
+                    </div>
+                     <p>Triple Room</p>
+                     <hr />
+                       <div class="row mb-3">
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtTripleRoomUnit" CssClass="form-control" placeholder="Enter Unit"></asp:TextBox>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtTripleRoomRent" CssClass="form-control" placeholder="Rent"></asp:TextBox>
+                        </div>
+                            <div class="col-md-4 mb-3">
+                            <asp:TextBox runat="server" ID="txtTripleRoomSize" CssClass="form-control" TextMode="Number" placeholder="Size (in sqft)"></asp:TextBox>
+                        </div>
+                    </div>
+                        
+
+
+
                     <div class="d-flex justify-content-between">
                         <button type="button" class="btn btn-secondary btn-prev">Previous</button>
                         <button type="button" class="btn btn-primary btn-next">Next</button>
@@ -222,7 +273,7 @@
         <div class="col"><asp:CheckBox ID="chkCCTV" runat="server" Text="CCTV" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkSecurity" runat="server" Text="Security Guard" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkAC" runat="server" Text="AC / Fan" CssClass="form-check me-1" /></div>
-        <div class="col"><asp:CheckBox ID="chkWater" runat="server" Text="Water Purifier" CssClass="form-check-input me-1" /></div>
+        <div class="col"><asp:CheckBox ID="chkWater" runat="server" Text="Water Purifier" CssClass="form-check me-1" /></div>
     </div>
 </div>
 
@@ -281,184 +332,10 @@
 
 
 
-        <%--<div class="main">
-  <div class="nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
-          
-          <span class="fs-4">Stay Finder</span>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="PropertyOwner_Home.aspx" class="nav-link text-white" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16"></use></svg>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="AddProperty.aspx" class="nav-link active">
-              <svg class="bi pe-none me-2" width="16" height="16"></svg>
-              Add Property
-            </a>
-
-          </li>
-          <li>
-            <a href="PropertyList.aspx" class="nav-link text-white">
-              <svg class="bi pe-none me-2" width="16" height="16"></svg>
-              My properties
-            </a>
-          </li>
-          <li>
-            <a href="SiteView_Requests.aspx" class="nav-link text-white">
-              <svg class="bi pe-none me-2" width="16" height="16"></svg>
-         Site-View Requests
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi pe-none me-2" width="16" height="16"></svg>
-              nav_3
-            </a>
-          </li>
-        </ul>
-        <hr>
-        <div class="dropdown">
-          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img runat="server" id="profileImage" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong><asp:Label runat="server" ID="lblUserName" Text="bdo"></asp:Label></strong>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="">
-           
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-              <asp:HyperLink runat="server" CssClass="dropdown-item" Text="Sign out" NavigateUrl="../General/PropertyOwnerLogin.aspx"></asp:HyperLink>
-          </ul>
-        </div>
-      </div> 
-
-            <div class="content w-100" style=" font-family: 'Poppins', sans-serif;">
-                    <div id="loader">
-            <div class="spinner">
-
-            </div>
-        </div>
-                <div class="container">
-    <div class="property-form-card">
-        <h2>Add New Property</h2>
-            
-            <!-- Property Name -->
-            <div class="mb-3">
-                <label class="form-label">Property Name</label>
-                <asp:TextBox runat="server" ID="txtPropertyName" CssClass="form-control" placeholder="Enter property name" required></asp:TextBox>
-            </div>
-
-            <!-- Property Type -->
-            <div class="mb-3">
-    <label class="form-label" for="ddlPropertyType">Property Type</label>
-    <asp:DropDownList ID="ddlPropertyType" runat="server" CssClass="form-select" required>
-        <asp:ListItem Value="" Text="Select Type" Selected="True"></asp:ListItem>
-        <asp:ListItem Value="Mess" Text="Mess"></asp:ListItem>
-        <asp:ListItem Value="PG" Text="PG"></asp:ListItem>
-        <asp:ListItem Value="Flat" Text="Flat"></asp:ListItem>
-    </asp:DropDownList>
-</div>
-
-          <div class="mb-3">
-    <label class="form-label" for="ddlPropertyGender">Preferred Tenant Gender</label>
-    <asp:DropDownList ID="ddlPropertyGender" runat="server" CssClass="form-select">
-        <asp:ListItem Value="" Text="Select Type" Selected="True"></asp:ListItem>
-        <asp:ListItem Value="Male" Text="Male"></asp:ListItem>
-        <asp:ListItem Value="Female" Text="Female"></asp:ListItem>
-
-    </asp:DropDownList>
-</div>
-
-
-            <!-- Location -->
-            <div class="mb-3">
-                <label class="form-label">Full address</label>
-                <asp:TextBox CssClass="form-control" runat="server" ID="txtLocation" Placeholder="Eneter full address"></asp:TextBox>
-            </div>
-         <div class="mb-3">
-                <label class="form-label">City</label>
-                <asp:TextBox CssClass="form-control" runat="server" ID="txtCity" Placeholder="Enetr your city"></asp:TextBox>
-            </div>
-            <!-- Rent -->
-            <div class="mb-3">
-                <label class="form-label">Rent (INR)</label>
-                <asp:TextBox runat="server" ID="txtRent" CssClass="form-control" TextMode="Number" required></asp:TextBox>
-
-            </div>
-
-            <!-- No. of Rooms -->
-            <div class="mb-3">
-                <label class="form-label">Number of Rooms</label>
-                <asp:TextBox runat="server" ID="txtRoom" CssClass="form-control" TextMode="Number" required></asp:TextBox>
-
-            </div>
-
-            <!-- Description -->
-            <div class="mb-3">
-                <label class="form-label">Description</label>
-                 <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" placeholder="Enter about the property" TextMode="MultiLine" rows="3" required></asp:TextBox>
-
-            </div>
-
-            <!-- Facilities -->
-            <div class="mb-3">
-                <label class="form-label">Facilities</label>
-                <div class="form-check">
-                    <asp:CheckBox ID="chWifi" runat="server" />
-                    <label class="form-check-label">WiFi</label>
-                </div>
-                <div class="form-check">
-                   <asp:CheckBox ID="chParking" runat="server"  />
-                    <label class="form-check-label">Parking</label>
-                </div>
-                <div class="form-check">
-                <asp:CheckBox ID="chFood" runat="server" />
-                  <label class="form-check-label">Food Service</label>
-                </div>
-            </div>
-
-
-
-
-            <!-- Upload Images -->
-            <div class="mb-3">
-                <label class="form-label">Upload Images</label>
-                <asp:FileUpload runat="server" ID="PropertyImage" CssClass="form-control" required/>
-            </div>
-
-            <!-- Contact Details -->
-            <div class="mb-3">
-                <label class="form-label">Owner Contact</label>
-                <asp:TextBox runat="server" ID="txtContact" CssClass="form-control" placeholder="Enter contact number" required></asp:TextBox>
-            </div>
-             
-              <div class="mb-3 text-center">
-                  <asp:Label runat="server" ID="lblError"></asp:Label>
-              </div>
-            <!-- Submit Button -->
-            <div class="text-center">
-                <asp:Button runat="server" CssClass="btn btn-primary btn-lg" Text="Add property" OnClick="addproperty_Click" />
-            </div>
-    </div>
-</div>
-            </div>
-
-            </div>--%>
     </form>
     <script src="../General/JavaScript/PageLoader.js"></script>
               <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <%-- <script>
-         document.addEventListener("DOMContentLoaded", function () {
-             var fileInput = document.getElementById('<%= PropertyImage.ClientID %>');
-            if (fileInput) {
-                fileInput.setAttribute("accept", ".jpg,.jpeg"); // Restrict to JPG and JPEG
-            }
-        });
-</script>--%>
-
+   
 
 
 

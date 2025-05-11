@@ -38,6 +38,45 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
+        .modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.modern-table thead {
+    background-color: #4a90e2;
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.modern-table th, 
+.modern-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eaeaea;
+    
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f5faff;
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none;
+}
+        .rent {
+            text-align: center;
+        }
+
+
+
+
     </style>
     <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
 </head>
@@ -141,10 +180,39 @@
             </div>
 
              <div class="card shadow p-4 mb-4">
-                <div class="section-title">Owner Details</div>
-                <p><strong>Rent:</strong> <asp:Label ID="lblRent" runat="server" />/Month</p>
+                <div class="section-title">Room Details</div>
                 <p><strong>Number of Rooms:</strong> <asp:Label ID="lblNumberOfRooms" runat="server" /></p>
                  <p><strong>Only for:</strong> <asp:Label ID="lblGender" runat="server" /></p>
+                 <p><strong>Rent:</strong></p>
+                 
+                 <table class="modern-table">
+    <thead>
+        <tr>
+            <th>Room Type</th>
+            <th class="rent">Unit</th>
+            <th>Rent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Single Room</td>
+            <td class="rent"><asp:Label runat="server" ID="lblSingleRoomUnit"></asp:Label></td>
+            <td><asp:Label runat="server" ID="lblSingleRoomRent"></asp:Label></td>
+        </tr>
+        <tr>
+            <td>Double Room</td>
+            <td class="rent"><asp:Label runat="server" ID="lblDoubleRoomUnit"></asp:Label></td>
+            <td><asp:Label runat="server" ID="lblDoubleRoomRent"></asp:Label></td>
+        </tr>
+        <tr>
+            <td>Triple Room</td>
+            <td class="rent"><asp:Label runat="server" ID="lblTripleRoomUnit"></asp:Label></td>
+            <td><asp:Label runat="server" ID="lblTripleRoomRent"></asp:Label></td>
+        </tr>
+    </tbody>
+</table>
+
+
             </div>
 
             <div class="card shadow p-4 mb-4">

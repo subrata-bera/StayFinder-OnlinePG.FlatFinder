@@ -14,7 +14,18 @@ body {
     position:sticky;
    top :0;
    
+   
+   
+ 
+ 
     
+}
+.side-bar {
+    height: 100vh;
+    width: 280px;
+    padding: 12px;
+    transition: 0.1s;
+   
 }
 
 /* Card Styling */
@@ -78,9 +89,34 @@ input[type="file"] {
     background: #0056b3;
 }
 
+.nav-icon svg {
+    display: none;
+    /*border: 2px solid red;*/
+}
+
+.cross-icon svg {
+    display: none;
+}
+   
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .property-form-card {
         width: 90%;
     }
+}
+
+@media (max-width:500px) {
+    .side-bar {
+        width: 0;
+   overflow: hidden;
+   padding: 0 ;
+   position:fixed;
+   z-index: 100;
+  
+    }
+    .nav-icon svg {
+        display: block;
+    }
+    
 }

@@ -72,8 +72,14 @@ public partial class General_PropertyDetails : System.Web.UI.Page
                 lblOwnerName.Text = reader["OwnerName"].ToString();
                 lblAddress.Text = reader["Location"].ToString();
                 lblContact.Text = reader["Contact"].ToString();
-                lblRent.Text = reader["Rent"].ToString();
                 lblGender.Text = reader["Gender"].ToString();
+
+                lblSingleRoomRent.Text = reader["SingleRoomRent"].ToString();
+                lblSingleRoomSize.Text = reader["SingleRoomSize"].ToString();
+                lblDoubleRoomRent.Text = reader["DoubleRoomRent"].ToString();
+                lblDoubleRoomSize.Text = reader["DoubleRoomSize"].ToString();
+                lblTripleRoomRent.Text = reader["TripleRoomRent"].ToString();
+                lblTripleRoomSize.Text = reader["TripleRoomSize"].ToString();
 
                 // Load Image
                

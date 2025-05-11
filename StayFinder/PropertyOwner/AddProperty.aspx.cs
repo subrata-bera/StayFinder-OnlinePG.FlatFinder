@@ -31,16 +31,9 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
     protected void Submit_Click(object sender, EventArgs e)
     {
        
-        int rent;
-        if (!int.TryParse(txtRent.Text, out rent) || rent < 0)
-        {
-            string script = "alert('Please enter a valid positive number for Rent.');";
-            ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-            return;
-        }
 
-        else
-        {
+
+        
            conn.Open();
             SqlCommand cmd = new SqlCommand("InsertPropertyDetails", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -55,7 +48,6 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
             
 
 
-            cmd.Parameters.AddWithValue("Rent", txtRent.Text);
             cmd.Parameters.AddWithValue("NumberOfRooms", txtRooms.Text);
             cmd.Parameters.AddWithValue("Description", txtDescription.Text);
             cmd.Parameters.AddWithValue("Facility_Wifi", chkWifi.Checked ? "WiFi" : "");
@@ -77,6 +69,18 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
             cmd.Parameters.AddWithValue("Contact", txtContact.Text);
             cmd.Parameters.AddWithValue("OwnerName", Session["Name"].ToString());
             cmd.Parameters.AddWithValue("Email", Session["Email"].ToString());
+
+            cmd.Parameters.AddWithValue("@SingleRoomUnit", txtSingleRoomUnit.Text);
+            cmd.Parameters.AddWithValue("@SingleRoomRent", txtSingleRoomRent.Text);
+            cmd.Parameters.AddWithValue("@DoubleRoomUnit", txtDoubleRoomUnit.Text);
+            cmd.Parameters.AddWithValue("@DoubleRoomRent", txtDoubleRoomRent.Text);
+            cmd.Parameters.AddWithValue("@TripleRoomUnit", txtTripleRoomUnit.Text);
+            cmd.Parameters.AddWithValue("@TripleRoomRent", txtTripleRoomRent.Text);
+
+            cmd.Parameters.AddWithValue("@SingleRoomSize", txtSingleRoomSize.Text);
+            cmd.Parameters.AddWithValue("@DoubleRoomSize", txtDoubleRoomSize.Text);
+            cmd.Parameters.AddWithValue("@TripleRoomSize", txtTripleRoomSize.Text);
+
 
 
             byte[] imagedata = null;
@@ -116,7 +120,7 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
                 }
                 cmd.Parameters.AddWithValue("PropertyImage_3", imagedata_3);
             }
-            else
+            else 
             {
                 cmd.Parameters.AddWithValue("@PropertyImage_3", DBNull.Value);
             }
@@ -130,6 +134,6 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
             string script = "alert('Property Added Successfull.');";
             ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
      
-        }
+        
     }
 }

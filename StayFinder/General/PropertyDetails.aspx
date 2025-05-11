@@ -103,7 +103,7 @@
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
         <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
-        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
+        <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find Your Stay</a></li>
 
         <!-- Dropdown for Login -->
         <li class="nav-item dropdown hover-dropdown">
@@ -142,7 +142,7 @@
                     <p class="mb-2">🏢 <strong>Type:</strong> <asp:Label runat="server" id="lblType"></asp:Label></p>
                     <p class="mb-2">🚻 <strong>Suitable for:</strong> <asp:Label runat="server" id="lblGender"></asp:Label></p>
                     <p class="mb-2">🚪 <strong>Rooms:</strong> <asp:Label runat="server" id="lblNumberOfRooms"></asp:Label></p>
-                    <p class="mb-2">💸 <strong>Rent:</strong> <span class="text-success"><asp:Label runat="server" id="lblRent"></asp:Label> / month</span></p>
+                    
                 </div>
 
                 <div class="mt-3">
@@ -191,7 +191,37 @@
         </div>
     </div>
 
-    <!-- Property Info -->
+<!-- Rent Section (Single Room, Double Room, Triple Room) -->
+<div class="row mt-4 g-4">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="card-title">Rent Options</h5>
+                <div class="btn-group w-100" role="group" aria-label="Rent Options">
+                    <button type="button" class="btn btn-outline-primary w-33" onclick="showRoomDetails('single', this)">Single Room</button>
+<button type="button" class="btn btn-outline-primary w-33" onclick="showRoomDetails('double', this)">Double Room</button>
+<button type="button" class="btn btn-outline-primary w-33" onclick="showRoomDetails('triple', this)">Triple Room</button>
+
+                </div>
+                <!-- Single Room Details -->
+                <div id="singleRoomDetails" class="room-details mt-3" style="display: none;">
+                    <p><strong>Rent:</strong><asp:Label runat="server" ID="lblSingleRoomRent"></asp:Label></p>
+                    <p><strong>Size:</strong> <asp:Label runat="server" ID="lblSingleRoomSize"></asp:Label></p>
+                </div>
+                <!-- Double Room Details -->
+                <div id="doubleRoomDetails" class="room-details mt-3" style="display: none;">
+                    <p><strong>Rent:</strong> <asp:Label runat="server" ID="lblDoubleRoomRent"></asp:Label></p>
+                    <p><strong>Size:</strong> <asp:Label runat="server" ID="lblDoubleRoomSize"></asp:Label></p>
+                </div>
+                <!-- Triple Room Details -->
+                <div id="tripleRoomDetails" class="room-details mt-3" style="display: none;">
+                    <p><strong>Rent:</strong><asp:Label runat="server" ID="lblTripleRoomRent"></asp:Label></p>
+                    <p><strong>Size:</strong><asp:Label runat="server" ID="lblTripleRoomSize"></asp:Label></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
    
 
     <!-- Location & Owner -->
@@ -269,7 +299,7 @@
 
 
     </form>
-
+    <script src="JavaScript/PropertyDetails.js"></script>
         <script src="JavaScript/PageLoader.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
