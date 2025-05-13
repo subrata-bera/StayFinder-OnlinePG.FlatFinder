@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
            
         <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
+        <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />
+
     <style>
         .main-container {
             display:flex;
@@ -39,8 +41,12 @@
 </div>
      <form id="form1" runat="server">
    <div class="main-container">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
-          
+        <div class="nav d-flex side-bar flex-column flex-shrink-0  text-bg-dark">
+            <div class="cross-icon ms-auto p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg>
+            </div>
           <span class="fs-4">Stay Finder</span>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -54,6 +60,21 @@
             <a href="PendingProperties.aspx" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"></svg>
               Pending Property
+            </a>
+
+          </li>
+
+             <li>
+            <a href="ManageOwners.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Owners
+            </a>
+
+          </li>
+             <li>
+            <a href="ManageUsers.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Users
             </a>
 
           </li>
@@ -82,6 +103,11 @@
 
 
          <div class="container py-5">
+             <div class="nav-icon mx-2 my-3">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+       </div>
             <h2 class="text-center mb-4 dashboard-title">Admin Dashboard</h2>
             <div class="row g-4">
                 <div class="col-md-4">
@@ -130,6 +156,7 @@
     </form>
 
     <script src="../General/JavaScript/PageLoader.js"></script>
+      <script src="../General/JavaScript/ResponsiveSidebar.js"></script>
 
 
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

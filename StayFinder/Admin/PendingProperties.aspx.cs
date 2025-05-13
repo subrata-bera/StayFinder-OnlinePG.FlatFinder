@@ -20,7 +20,7 @@ public partial class Admin_PendingProperties : System.Web.UI.Page
             {
                 lblUserName.Text = Session["Name"].ToString();
                 string email = Session["Email"].ToString();
-                LoadPropertyDetails();
+               
             }
             else
             {

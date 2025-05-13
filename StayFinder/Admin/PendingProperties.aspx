@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Pending Properties</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -32,16 +34,20 @@
             left: 50%
         }
     </style>
-    <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
-</head>
+ <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
+        <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" /></head>
 <body>
     <div id="loader">
     <div class="spinner"></div>
 </div>
     <form id="form1" runat="server">
    <div class="main-container">
-        <div class="nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
-          
+        <div class="nav d-flex side-bar flex-column flex-shrink-0  text-bg-dark">
+            <div class="cross-icon ms-auto p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg>
+            </div>
           <span class="fs-4">Stay Finder</span>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -58,7 +64,21 @@
             </a>
 
           </li>
-         
+
+             <li>
+            <a href="ManageOwners.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Owners
+            </a>
+
+          </li>
+           <li>
+            <a href="ManageUsers.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Users
+            </a>
+
+          </li>
         
           
         </ul>
@@ -77,6 +97,11 @@
         </div>
       </div>  
        <div class="content">
+           <div class="nav-icon mx-2 my-3">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+       </div>
            <center><asp:Label ID="lblNoProperty" runat="server" Text="No Pending Property Found" CssClass="text-center lblError text-danger fs-4 fw-bold" Visible="false"></asp:Label></center>
 
            <asp:Repeater ID="rptPropertyList" runat="server">
@@ -95,6 +120,7 @@
    </div>
       
     </form>
+          <script src="../General/JavaScript/ResponsiveSidebar.js"></script>
 
     <script src="../General/JavaScript/PageLoader.js"></script>
 

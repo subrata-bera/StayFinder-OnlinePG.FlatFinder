@@ -83,7 +83,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="container mt-5">
+    <div class="container mt-5 w-100">
         <div class="row g-4">
 
             <!-- Payment History Card -->
@@ -99,7 +99,6 @@
                                 <th>Request ID</th>
                                 <th>Property Name</th>
                                 <th>Request Type</th>
-                                <th>Document</th>
                                 <th>Uploaded Document</th>
                                 <th>Status</th>
                                 <th>Download Acknowledgment</th>
@@ -114,7 +113,6 @@
                                 <td><%# Eval("ID") %></td>
                                 <td><%# Eval("PropertyName") %></td>
                                 <td><%# Eval("RequestType") %></td>
-                                <td><%# Eval("DocumentType") %></td>
                                 <td><a class="text-primary text-decoration-none" href='ViewDocument.aspx?ID=<%#Eval("ID") %>'>View</a></td>
                                 <td><%# Eval("Status") %></td>
                                  <td><a href='Acknowledgement.aspx?ID=<%#Eval("ID") %>'>
@@ -130,6 +128,15 @@
     OnClientClick="return confirm('Are you sure you want to cancel this request?');"
     CommandName="CancelRequest" CommandArgument='<%# Eval("ID") %>'>Cancel Request</asp:LinkButton>
 </td>
+
+                                <td>
+    <asp:Button ID="btnMakePayment" runat="server" 
+        Text="Make Payment"
+        CssClass="btn btn-success"
+        CommandName="MakePayment"
+        CommandArgument='<%# Eval("ID") %>'
+        Enabled='<%# Eval("Status").ToString().Equals("Approved") %>' />
+</td>
                                
                             </tr>
                  </ItemTemplate>
@@ -137,7 +144,11 @@
                         </tbody>
 
                     </table>
-                                                                        <center><asp:Label runat="server" ID="lblError" Text="No request found" Visible="false" CssClass="text-danger fw-semibold"></asp:Label>
+                    <div class="alert alert-info mt-4 fw-semibold text-center" role="alert">
+    🕒 <strong>Note:</strong> Please make the payment <strong>within 48 hours</strong> after your booking request is approved. Failure to do so may result in cancellation.
+</div>
+
+        <center><asp:Label runat="server" ID="lblError" Text="No request found" Visible="false" CssClass="text-danger fw-semibold"></asp:Label>
 </center>
 
                 </div>

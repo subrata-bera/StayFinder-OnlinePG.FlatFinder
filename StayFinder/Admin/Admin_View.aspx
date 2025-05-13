@@ -105,6 +105,21 @@
             </a>
 
           </li>
+            
+             <li>
+            <a href="ManageOwners.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Owners
+            </a>
+
+          </li>
+             <li>
+            <a href="ManageUsers.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Manage Users
+            </a>
+
+          </li>
          
         
           
