@@ -175,6 +175,10 @@
                         <label>Owner Contact</label>
                         <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" required />
                     </div>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" CssClass="form-control" required />
+                    </div>
                     <button type="button" class="btn btn-primary btn-next float-end">Next</button>
                 </div>
 
@@ -199,7 +203,7 @@
                    
                     <div class="mb-3">
                         <label>Number of Rooms</label>
-                        <asp:TextBox ID="txtRooms" runat="server" CssClass="form-control" TextMode="Number" requireds/>
+                        <asp:TextBox ID="txtRooms" runat="server" CssClass="form-control" TextMode="Number" required/>
                     </div>
                     <div class="d-flex justify-content-between">
                         <button type="button" class="btn btn-secondary btn-prev">Previous</button>
@@ -304,19 +308,19 @@
                 <div class="form-step">
                     <div class="mb-3">
                         <label>Upload Photos</label>
-                        <asp:FileUpload ID="PropertyImage" runat="server" AllowMultiple="true" CssClass="form-control" />
+                        <asp:FileUpload ID="PropertyImage" runat="server" AllowMultiple="true" CssClass="form-control" required accept=".jpg,.jpeg,.png" />
                     </div>
                        <div class="mb-3">
                         <label>Upload Photos</label>
-                        <asp:FileUpload ID="PropertyImage_2" runat="server" AllowMultiple="true" CssClass="form-control" />
+                        <asp:FileUpload ID="PropertyImage_2" runat="server" AllowMultiple="true" CssClass="form-control" required accept=".jpg,.jpeg,.png"  />
                     </div>
                        <div class="mb-3">
                         <label>Upload Photos</label>
-                        <asp:FileUpload ID="PropertyImage_3" runat="server" AllowMultiple="true" CssClass="form-control" />
+                        <asp:FileUpload ID="PropertyImage_3" runat="server" AllowMultiple="true" CssClass="form-control" required accept=".jpg,.jpeg,.png" />
                     </div>
                     <div class="d-flex justify-content-between">
                         <button type="button" class="btn btn-secondary btn-prev">Previous</button>
-                        <asp:Button ID="btnSubmit" runat="server" Text="Submit Property" CssClass="btn btn-success" OnClick="Submit_Click" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit Property" CssClass="btn btn-success" required OnClick="Submit_Click" />
                     </div>
                 </div>
             </div>

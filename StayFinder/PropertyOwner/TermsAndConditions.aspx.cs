@@ -48,7 +48,7 @@ public partial class PropertyOwner_TermsAndConditions : System.Web.UI.Page
                 }
                 else
                 {
-                    profileImage.Src = "Assets/default-profile.png";
+                    profileImage.Src = "../General/Assets/DefaultProfileImage.png" ;
                 }
             }
             conn.Close();

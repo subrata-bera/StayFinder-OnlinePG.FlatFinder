@@ -89,7 +89,9 @@ public partial class User_Home : System.Web.UI.Page
 
     protected void Logout_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/General/index.aspx");
         Session.Clear();
+        
+        Response.Redirect("~/General/index.aspx");
+       
     }
 }

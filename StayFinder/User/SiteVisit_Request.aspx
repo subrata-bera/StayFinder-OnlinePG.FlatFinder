@@ -33,13 +33,26 @@
                       <asp:TextBox CssClass="form-control mt-1" runat="server" ID="txtNumber" placeholder="Enter Mobile Number" ></asp:TextBox>
 
                         </div>
-                    </div>
-                    <div class="right-side px-3">
-                        <div class="input my-3">
+                          <div class="input my-3">
                             <label for="txtAddress">Enter address</label>
                              <asp:TextBox CssClass="form-control mt-1" runat="server" ID="txtAddress" placeholder="Enter Address" ></asp:TextBox>
 
                         </div>
+                    </div>
+                    <div class="right-side px-3">
+                         
+                         <div class="input my-3">
+                            <label for="roomtype">Select Room Type</label>
+                           <asp:DropDownList ID="ddlRoomType" runat="server" CssClass="form-control" >
+                                     <asp:ListItem Text="-- Select Your Room Type --" Value="" />
+                                     <asp:ListItem Text="Single Room" Value="Single Room" />
+                                     <asp:ListItem Text="Double Room" Value="Double Room" />
+                                  
+                            </asp:DropDownList>
+
+                        </div> 
+
+
                         <div class="input my-3">
                             <label for="txtNumber">Number of people</label>
                             <asp:TextBox TextMode="number" CssClass="form-control mt-1" runat="server" ID="txtNumberOfPeople" ></asp:TextBox>

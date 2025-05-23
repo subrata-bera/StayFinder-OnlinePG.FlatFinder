@@ -58,6 +58,7 @@ public partial class User_Acknowledgement : System.Web.UI.Page
             lblGender.Text = reader["Gender"].ToString();
             lblStatus.Text = reader["Status"].ToString();
             lblRequestType.Text = reader["RequestType"].ToString();
+            lblRoomType.Text = reader["RoomType"].ToString();
         }
     }
 

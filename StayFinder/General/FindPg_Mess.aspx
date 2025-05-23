@@ -33,7 +33,7 @@
         </button>
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="../Default.aspx" class="nav-link active">Home</a></li>
         <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find Your Stay</a></li>
 
         <!-- Dropdown for Login -->

@@ -54,7 +54,7 @@
     <p class="fs-5 mt-3">Your message has been sent successfully.<br>We will get back to you shortly.</p>
     <img src="../General/Assets/check.png" alt="Checkmark" class="checkmark" />
     <asp:Button runat="server" CssClass="btn btn-primary" Text="Print Acknowledgement" OnClick="Print_Click"  />
-         <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger" Text="Home"  />
+         <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger" OnClick="home_Click" Text="Home"  />
   </div>
 
     </form>

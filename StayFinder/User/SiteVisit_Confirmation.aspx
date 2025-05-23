@@ -119,6 +119,11 @@
                     <div class="info-label">Request Type</div>
                     <div class="info-value"><asp:Label ID="lblRequestType" runat="server" /></div>
                 </div>
+
+              <div class="col-md-6">
+                    <div class="info-label">Room Type</div>
+                    <div class="info-value"><asp:Label ID="lblRoomType" runat="server" /></div>
+                </div>
              
 
             </div>

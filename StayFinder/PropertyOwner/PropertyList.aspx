@@ -52,12 +52,7 @@
          Site-View Requests
             </a>
           </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                nav_3
-              </a>
-            </li>
+           
           </ul>
           <hr>
           <div class="dropdown">
@@ -114,7 +109,7 @@
                     </li>
                     <li class="list-group-item">Status: <%# Eval("ApprovalStatus") %>
                     </li>
-                    <li class="list-group-item">Approved by: <%# Eval("ApprovedBy") %>
+                    <li class="list-group-item">Approved By: <%# Eval("ApprovedBy") %>
                     </li>
 
 

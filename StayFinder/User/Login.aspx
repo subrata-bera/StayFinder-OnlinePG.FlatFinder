@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login - User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../General/StyleSheets/Navbar.css" rel="stylesheet" />
     <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
@@ -42,7 +44,7 @@
         </button>
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item"><a href="../General/index.aspx" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="../Default.aspx" class="nav-link active">Home</a></li>
         <li class="nav-item"><a href="../General/FindPg_Mess.aspx" class="nav-link">Find PG/Mess</a></li>
 
         <!-- Dropdown for Login -->

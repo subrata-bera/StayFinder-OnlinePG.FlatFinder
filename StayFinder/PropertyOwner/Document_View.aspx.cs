@@ -47,7 +47,7 @@ public partial class PropertyOwner_Document_View : System.Web.UI.Page
                 }
                 else
                 {
-                    imgDocument.ImageUrl = "../General/Assets/defaultProperty.jpeg"; // Show default if no image
+                    imgDocument.ImageUrl = "../General/Assets/DefaultProfileImage.png"; // Show default if no image
                 }
             }
             conn.Close();

@@ -38,7 +38,7 @@ body::-webkit-scrollbar {
         </button>
        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item"><a href="index.aspx" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="../Default.aspx" class="nav-link active">Home</a></li>
         <li class="nav-item"><a href="FindPg_Mess.aspx" class="nav-link">Find Your Stay</a></li>
 
         <!-- Dropdown for Login -->
@@ -103,7 +103,7 @@ body::-webkit-scrollbar {
             <!-- Upload Profile Picture -->
             <div class="mb-3">
                 <label class="form-label">Upload Profile Picture</label>
-                <asp:FileUpload ID="profilepicture" runat="server" CssClass="form-control" required/>
+                <asp:FileUpload ID="profilepicture" runat="server" CssClass="form-control" accept=".jpg,.jpeg,.png"/>
             </div>
 
          <div class="mb-3 text-center">

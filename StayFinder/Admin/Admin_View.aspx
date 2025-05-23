@@ -73,7 +73,42 @@
         .rent {
             text-align: center;
         }
+        
+/* Responsive Design */
+@media (max-width: 768px) {
+    .property-form-card {
+        width: 90%;
+    }
+}
+.nav-icon svg {
+    display: none;
+}
 
+.cross-icon svg {
+    display: none;
+}
+.side-bar {
+    height: 100vh;
+    width: 280px;
+    padding: 12px;
+    transition: 0.1s;
+   
+}
+   
+@media (max-width:500px) {
+    .side-bar {
+        width: 0;
+   overflow: hidden;
+   padding: 0 ;
+   position:fixed;
+   z-index: 100;
+  
+    }
+    .nav-icon svg {
+        display: block;
+    }
+    
+}
 
 
 
@@ -87,8 +122,12 @@
 </div>
     <form id="form1" runat="server">
    <div class="main-container">
-        <div class="nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
-          
+        <div class="nav d-flex side-bar flex-column flex-shrink-0  text-bg-dark">
+          <div class="cross-icon ms-auto p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg>
+            </div>
           <span class="fs-4">Stay Finder</span>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -142,6 +181,11 @@
 
  <div class="main pt-1 w-100">
          <div class="container mt-4 mb-5">
+              <div class="nav-icon mx-2 my-3">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+       </div>
             <h2 class="text-center mb-4">Property Details</h2>
 
             <div class="card shadow p-4 mb-4">
@@ -248,6 +292,7 @@
     <script src="../General/JavaScript/PageLoader.js"></script>
 
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+          <script src="../General/JavaScript/ResponsiveSidebar.js"></script>
 
 </body>
 </html>

@@ -87,7 +87,7 @@ public partial class PropertyOwner_Edit_Property : System.Web.UI.Page
                 }
                 else
                 {
-                    profileImage.Src = "Assets/default-profile.png"; // Default profile image
+                    profileImage.Src = "../General/Assets/DefaultProfileImage.png";  // Default profile image
                 }
             }
             conn.Close();

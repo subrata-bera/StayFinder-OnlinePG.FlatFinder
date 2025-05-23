@@ -127,12 +127,16 @@
                          <ItemTemplate>
                                 <tr>
                                     <td><%#Eval("ID") %></td>
-                            <td><img src="data:image/png;base64,<%# Convert.ToBase64String((byte[])Eval("ProfilePic")) %>" width="50" height="50" class="rounded-circle" /></td>
+<td>
+    <img src='<%# Eval("ProfilePic") == DBNull.Value || Eval("ProfilePic") == null || string.IsNullOrEmpty(Eval("ProfilePic").ToString()) ? "../General/Assets/DefaultProfileImage.png" : "data:image/png;base64," + Convert.ToBase64String((byte[])Eval("ProfilePic")) %>' width="50" height="50" class="rounded-circle" />
+</td>
+
                             <td><%#Eval("Name") %></td>
                             <td><%#Eval("Email") %></td>
                             <td>+91-<%#Eval("Contact") %></td>
                             <td class="action-btns">
-                                <button class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></button>
+                             <a class="btn btn-sm btn-warning" href='Owner_View.aspx?ID=<%#Eval("ID") %>'><i class="bi bi-eye"></i></a>
+ 
                                 <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>

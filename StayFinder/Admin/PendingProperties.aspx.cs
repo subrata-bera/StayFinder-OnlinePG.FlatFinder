@@ -20,6 +20,7 @@ public partial class Admin_PendingProperties : System.Web.UI.Page
             {
                 lblUserName.Text = Session["Name"].ToString();
                 string email = Session["Email"].ToString();
+                LoadPropertyDetails();
                
             }
             else
@@ -39,13 +40,13 @@ public partial class Admin_PendingProperties : System.Web.UI.Page
             {
                 rptPropertyList.DataSource = reader;
                 rptPropertyList.DataBind();
-                lblNoProperty.Visible = false; // Hide message if data found
+                lblNoProperty.Visible = false; 
             }
             else
             {
                 rptPropertyList.DataSource = null;
                 rptPropertyList.DataBind();
-                lblNoProperty.Visible = true; // Show message if no data
+                lblNoProperty.Visible = true; 
             }
             conn.Close();
         }

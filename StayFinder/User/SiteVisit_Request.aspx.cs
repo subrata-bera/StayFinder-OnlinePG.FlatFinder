@@ -57,6 +57,9 @@ public partial class User_SiteVisit_Request : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@BookingDate", txtDate.Text);
             cmd.Parameters.AddWithValue("@PropertyId", Session["SelectedPropertyId"].ToString());
             cmd.Parameters.AddWithValue("@RequestType", Session["RequestType"].ToString());
+        
+
+            cmd.Parameters.AddWithValue("@RoomType", ddlRoomType.Text);
 
 
 

@@ -32,6 +32,7 @@ public partial class General_PropertyOwnerLogin : System.Web.UI.Page
                 {
                     Session["Email"] = dr[0]["Email"].ToString();
                     Session["Name"] = dr[0]["Name"].ToString();
+                    Session["ID"] = dr[0]["ID"].ToString();
                     Response.Redirect("~/PropertyOwner/PropertyOwner_Home.aspx");
                 }
                 else

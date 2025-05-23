@@ -16,11 +16,11 @@ public partial class PropertyOwner_SiteView_Requests : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Session["Email"] != null)
+            if (Session["ID"] != null)
             {
-                string email = Session["Email"].ToString();
-                LoadUserProfile(email);
-                BookingRequests(Session["Email"].ToString());
+                string id = Session["ID"].ToString();
+                LoadUserProfile(id);
+                BookingRequests(id);
             }
             else
             {
@@ -28,13 +28,13 @@ public partial class PropertyOwner_SiteView_Requests : System.Web.UI.Page
             }
         }
     }
-    private void BookingRequests(string email)
+    private void BookingRequests(string id)
     {
 
         SqlCommand cmd = new SqlCommand("FetchBookingRequests", conn);
         cmd.CommandType = CommandType.StoredProcedure;
 
-        cmd.Parameters.AddWithValue("@Email", email);
+        cmd.Parameters.AddWithValue("@ID", id);
         conn.Open();
         SqlDataReader reader = cmd.ExecuteReader();
         rptBookingRequest.DataSource = reader;
@@ -47,11 +47,11 @@ public partial class PropertyOwner_SiteView_Requests : System.Web.UI.Page
 
         Response.Redirect("~/General/PropertyOwnerLogin.aspx");
     }
-    private void LoadUserProfile(string email)
+    private void LoadUserProfile(string id)
     {
-        using (SqlCommand cmd = new SqlCommand("SELECT ProfilePic FROM PropertyOwnerDetails WHERE Email = @Email", conn))
+        using (SqlCommand cmd = new SqlCommand("SELECT ProfilePic FROM PropertyOwnerDetails WHERE ID = @id", conn))
         {
-            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@id", id);
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -68,7 +68,7 @@ public partial class PropertyOwner_SiteView_Requests : System.Web.UI.Page
                 }
                 else
                 {
-                    profileImage.Src = "Assets/default-profile.png"; // Default profile image
+                    profileImage.Src = "../General/Assets/DefaultProfileImage.png";  // Default profile image
                 }
             }
             conn.Close();
