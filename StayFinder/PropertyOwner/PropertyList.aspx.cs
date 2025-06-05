@@ -19,7 +19,7 @@ public partial class PropertyOwner_PropertyList : System.Web.UI.Page
         {
             if (Session["ID"] == null)
             {
-                Response.Redirect("~/Login.aspx");
+                Response.Redirect("~/General/PropertyOwnerLogin.aspx");
                 
             }
             else
@@ -99,7 +99,7 @@ public partial class PropertyOwner_PropertyList : System.Web.UI.Page
                     }
 
                     // Refresh Property List
-                    LoadPropertyDetails(Session["Email"].ToString());
+                    LoadPropertyDetails(Session["ID"].ToString());
 
                 }
             }

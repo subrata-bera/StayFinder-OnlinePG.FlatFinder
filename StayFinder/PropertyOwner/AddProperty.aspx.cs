@@ -30,12 +30,12 @@ public partial class PropertyOwner_AddProperty : System.Web.UI.Page
 
     protected void Submit_Click(object sender, EventArgs e)
     {
-        // Check image file sizes (500 KB = 512000 bytes)
-        if ((PropertyImage.HasFile && PropertyImage.PostedFile.ContentLength > 512000) ||
-            (PropertyImage_2.HasFile && PropertyImage_2.PostedFile.ContentLength > 512000) ||
-            (PropertyImage_3.HasFile && PropertyImage_3.PostedFile.ContentLength > 512000))
+        // Check image file sizes (1 MB = 108576 bytes)
+        if ((PropertyImage.HasFile && PropertyImage.PostedFile.ContentLength > 1048576) ||
+            (PropertyImage_2.HasFile && PropertyImage_2.PostedFile.ContentLength > 1048576) ||
+            (PropertyImage_3.HasFile && PropertyImage_3.PostedFile.ContentLength > 1048576))
         {
-            string script = "alert('One or more images exceed the 500 KB limit. Please upload smaller images.');";
+            string script = "alert('One or more images exceed the 1 MB limit. Please upload smaller images.');";
             ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
             return;
         }

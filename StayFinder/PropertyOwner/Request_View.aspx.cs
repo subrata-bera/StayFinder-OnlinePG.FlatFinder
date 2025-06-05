@@ -77,6 +77,7 @@ public partial class PropertyOwner_Request_View : System.Web.UI.Page
             lblDocumentType.Text = reader["DocumentType"].ToString();
             lblDocumentNumber.Text = reader["DocumentsNumber"].ToString();
             lblRequestType.Text = reader["RequestType"].ToString();
+            lblRoomType.Text = reader["RoomType"].ToString();
         }
         conn.Close();
     }
@@ -98,5 +99,9 @@ public partial class PropertyOwner_Request_View : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         conn.Close();
         Response.Write("<script>alert('Request Accepted Successfully');window.location='SiteView_Requests.aspx';</script>");
+    }
+    protected void back_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PropertyOwner/SiteView_Requests.aspx");
     }
 }

@@ -51,6 +51,7 @@ public partial class User_SiteVisit_Confirmation : System.Web.UI.Page
             lblStatus.Text = reader["Status"].ToString();
             lblRequestType.Text = reader["RequestType"].ToString();
             lblRoomType.Text = reader["RoomType"].ToString();
+            lblAmount.Text = reader["TotalAmount"].ToString();
         }
         conn.Close();
     }

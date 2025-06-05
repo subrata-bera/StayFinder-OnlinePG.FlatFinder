@@ -39,13 +39,12 @@
         <li class="nav-item dropdown hover-dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../User/Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="../User/Login.aspx">Tenant Login</a></li>
                 <li><a class="dropdown-item" href="PropertyOwnerLogin.aspx">Property Owner Login</a></li>
-                <li><a class="dropdown-item" href="AdminLogin.aspx">Admin Login</a></li>
             </ul>
         </li>
 
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="AdminLogin.aspx" class="nav-link">Admin</a></li>
     </ul>
 </div>
     </div>
@@ -66,10 +65,7 @@
             
         </div>
 
-        <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">Remember me</label>
-        </div>
+       
         
         <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary w-100 py-2" Text="Sign in" OnClick="signin_Click"/>
     </div>

@@ -16,6 +16,9 @@
         display: block;
         margin-top: 0; /* removes animation gap */
     }
+    body {
+    padding-top: 60px; /* Adjust this value based on your navbar height */
+}
 </style>
 
 </head>
@@ -24,7 +27,28 @@
     <div class="spinner"></div>
 </div>
 
+
     <form id="form1" runat="server">
+        <div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-4 my-2">
+            <asp:DropDownList ID="ddlLocation" runat="server" CssClass="form-select">
+                <%--<asp:ListItem Text="-- Any Location --" Value="" />--%>
+            </asp:DropDownList>
+        </div>
+        <div class="col-md-4 my-2">
+    <asp:DropDownList ID="ddlMaxRent" runat="server" CssClass="form-select">
+        <%--<asp:ListItem Text="-- Any Rent --" Value="" />--%>
+        
+    </asp:DropDownList>
+</div>
+
+        <div class="col-md-4">
+<asp:Button ID="btnFilter" runat="server" Text="Apply Filter" CssClass="btn btn-primary w-100 my-2" OnClick="btnFilter_Click" />
+        </div>
+    </div>
+</div>
+
          <header class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a href="index.aspx" class="navbar-brand">Stay Finder</a>
@@ -40,13 +64,12 @@
         <li class="nav-item dropdown hover-dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../User/Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="../User/Login.aspx">Tenant Login</a></li>
                 <li><a class="dropdown-item" href="PropertyOwnerLogin.aspx">Property Owner Login</a></li>
-                <li><a class="dropdown-item" href="AdminLogin.aspx">Admin Login</a></li>
             </ul>
         </li>
 
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="AdminLogin.aspx" class="nav-link">Admin</a></li>
     </ul>
 </div>
     </div>

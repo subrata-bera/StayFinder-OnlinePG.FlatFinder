@@ -45,13 +45,12 @@ body::-webkit-scrollbar {
         <li class="nav-item dropdown hover-dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../User/Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="../User/Login.aspx">Tenant Login</a></li>
                 <li><a class="dropdown-item" href="PropertyOwnerLogin.aspx">Property Owner Login</a></li>
-                <li><a class="dropdown-item" href="AdminLogin.aspx">Admin Login</a></li>
             </ul>
         </li>
 
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="AdminLogin.aspx" class="nav-link">Admin</a></li>
     </ul>
 </div>
     </div>

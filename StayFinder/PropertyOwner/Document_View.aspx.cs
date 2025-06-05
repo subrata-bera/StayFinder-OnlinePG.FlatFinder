@@ -24,7 +24,7 @@ public partial class PropertyOwner_Document_View : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("BookingRequests.aspx"); // fallback
+                Response.Redirect("BookingRequests.aspx");
             }
         }
     }

@@ -13,6 +13,7 @@
     <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />
     <link href="../General/StyleSheets/PropertyList.css" rel="stylesheet" />
       
+      
   </head>
 
   <body>
@@ -84,6 +85,12 @@
   <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 </svg>
        </div>
+           <div class="container mb-4">
+  <h2 class="text-center fw-bold text-primary border-bottom pb-2">
+    Your Properties
+  </h2>
+</div>
+
           <!-- Move .property-container inside the Repeater -->
           <div class="property-container">
             <asp:Repeater ID="rptPropertyList" runat="server" OnItemCommand="rptPropertyList_ItemCommand">
@@ -108,9 +115,10 @@
                     <li class="list-group-item">For <%# Eval("Gender") %>
                     </li>
                     <li class="list-group-item">Status: <%# Eval("ApprovalStatus") %>
-                    </li>
-                    <li class="list-group-item">Approved By: <%# Eval("ApprovedBy") %>
-                    </li>
+                    <li class="list-group-item bg-light border-0 text-secondary">
+  <%# Eval("ApprovalStatus").ToString() == "Approved" ? "<strong>Approved By:</strong> " + Eval("ApprovedBy").ToString() : "" %>
+</li>
+
 
 
                   </ul>
@@ -120,7 +128,12 @@
                       OnClientClick="return confirm('Are you sure you want to delete this property?');">
                       Delete
                     </asp:LinkButton>
-                    <a href='Edit_Property.aspx?ID=<%# Eval("ID") %>' class="btn btn-warning">Edit details</a>
+                  <%--  <a href='Edit_Property.aspx?ID=<%# Eval("ID") %>' class="btn btn-warning">Edit details</a>--%>
+
+                      <asp:LinkButton ID="btnEdit" CssClass="btn btn-warning edit-btn" runat="server"
+    OnClientClick='<%# Eval("ID", "showEditConfirmation(\"Edit_Property.aspx?ID={0}\"); return false;") %>'>
+    Edit details
+</asp:LinkButton>
                   </div>
                 </div>
               </ItemTemplate>
@@ -132,11 +145,51 @@
       </div>
     </form>
 
+      <!-- Confirmation Modal -->
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="editConfirmLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow rounded">
+      <div class="modal-header bg-warning text-dark">
+        <h5 class="modal-title fw-bold" id="editConfirmLabel">Confirm Edit Action</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          After editing the property details, the status will change to <strong>Pending</strong> and will require admin approval again.
+        </p>
+        <p>Do you want to proceed?</p>
+      </div>
+      <div class="modal-footer justify-content-center gap-3">
+  <button type="button" class="btn btn-outline-danger px-4 fw-semibold" data-bs-dismiss="modal">
+    No
+  </button>
+  <a id="proceedEditBtn" href="#" class="btn btn-success px-4 fw-semibold">
+    Yes, Proceed
+  </a>
+</div>
+    </div>
+  </div>
+</div>
+
+
           <script src="../General/JavaScript/ResponsiveSidebar.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+      <script>
+          function showEditConfirmation(url) {
+              // Set the edit URL to the button in the modal
+              document.getElementById("proceedEditBtn").href = url;
+
+              // Show the Bootstrap modal
+              var myModal = new bootstrap.Modal(document.getElementById('editConfirmModal'), {
+                  keyboard: false
+              });
+              myModal.show();
+          }
+</script>
+
   </body>
 
   </html>

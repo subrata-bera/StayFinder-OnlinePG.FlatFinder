@@ -91,7 +91,13 @@ public partial class User_Home : System.Web.UI.Page
     {
         Session.Clear();
         
-        Response.Redirect("~/General/index.aspx");
+        Response.Redirect("~/Default.aspx");
        
     }
+
+
+  
+
+
+
 }

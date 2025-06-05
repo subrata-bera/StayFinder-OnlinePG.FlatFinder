@@ -85,6 +85,46 @@
             display: block;
         }
 
+
+
+
+          .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .check-item {
+        background-color: #e3f2fd;
+        border: 2px solid #90caf9;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .check-item:hover {
+        background-color: #bbdefb;
+        cursor: pointer;
+        transform: scale(1.03);
+    }
+
+    .check-item input[type="checkbox"] {
+        margin-right: 10px;
+        transform: scale(1.2);
+    }
+
+    .section-title i {
+        margin-right: 6px;
+        color: #1976d2;
+    }
+
+
+
+
+
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -268,7 +308,7 @@
                 <div class="form-step">
                    <div class="mb-4">
     <label class="form-label fw-semibold fs-5 text-primary">Facilities</label>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+   <%-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
         <div class="col"><asp:CheckBox ID="chkWifi" runat="server" Text="Wi-Fi" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkParking" runat="server" Text="Parking" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkPower" runat="server" Text="Power Backup" CssClass="form-check me-1" /></div>
@@ -278,19 +318,39 @@
         <div class="col"><asp:CheckBox ID="chkSecurity" runat="server" Text="Security Guard" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkAC" runat="server" Text="AC / Fan" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkWater" runat="server" Text="Water Purifier" CssClass="form-check me-1" /></div>
-    </div>
+    </div>--%>
+
+                       <div class="checkbox-grid">
+    <label class="check-item"><asp:CheckBox ID="chkWifi" runat="server" Text="Wi-Fi" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkParking" runat="server" Text="Parking" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkPower" runat="server" Text="Power Backup" /></label>
+    <label class="check-item"><asp:CheckBox ID="ChkWashingMachine" runat="server" Text="Washing Machine" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkGeyser" runat="server" Text="Geyser" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkCCTV" runat="server" Text="CCTV" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkSecurity" runat="server" Text="Security Guard" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkAC" runat="server" Text="AC / Fan" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkWater" runat="server" Text="Water Purifier" /></label>
+</div>
 </div>
 
 
                      <!-- Rules / Restrictions Section -->
 <div class="mb-4">
     <label class="form-label fw-semibold fs-5 text-primary">Rules & Restrictions</label>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+    <%--<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
         <div class="col"><asp:CheckBox ID="chkSmoking" runat="server" Text="No Smoking" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkAlcohol" runat="server" Text="No Alcohol" CssClass="form-check me-1" /></div>
         <div class="col"><asp:CheckBox ID="chkPets" runat="server" Text="No Pets" CssClass="form-check me-1" /></div>
         <div class="col-12"><asp:CheckBox ID="chkStudent" runat="server" Text="Only Students" CssClass="form-check me-1" /></div>
-    </div>
+    </div>--%>
+
+
+    <div class="checkbox-grid">
+    <label class="check-item"><asp:CheckBox ID="chkSmoking" runat="server" Text="No Smoking" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkAlcohol" runat="server" Text="No Alcohol" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkPets" runat="server" Text="No Pets" /></label>
+    <label class="check-item"><asp:CheckBox ID="chkStudent" runat="server" Text="Only Students" /></label>
+</div>
 </div>
 
 

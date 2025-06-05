@@ -124,6 +124,11 @@
                     <div class="info-label">Room Type</div>
                     <div class="info-value"><asp:Label ID="lblRoomType" runat="server" /></div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="info-label">Total Payble Amount</div>
+                    <div class="info-value"><asp:Label ID="lblAmount" runat="server" /></div>
+                </div>
              
 
             </div>

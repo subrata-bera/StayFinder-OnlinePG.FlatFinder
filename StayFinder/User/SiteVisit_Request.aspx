@@ -11,6 +11,18 @@
         <link href="../General/StyleSheets/Navbar.css" rel="stylesheet" />
         <link href="../General/StyleSheets/PageLoader.css" rel="stylesheet" />
         <link href="../General/StyleSheets/SiteVisitRequest.css" rel="stylesheet" />
+    <style>
+        html, body {
+    overflow: auto; /* Allows scrolling */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, Edge */
+}
+
+    </style>
 </head>
 <body>
     
@@ -40,23 +52,28 @@
                         </div>
                     </div>
                     <div class="right-side px-3">
-                         
-                         <div class="input my-3">
+                              <div class="input my-3">
+                            <label for="txtNumber">Number of people</label>
+                            <asp:TextBox TextMode="number" CssClass="form-control mt-1" runat="server" ID="txtNumberOfPeople" ></asp:TextBox>
+                        </div>
+
+
+
+                         <div class="input my-3" id="roomtype" runat="server">
                             <label for="roomtype">Select Room Type</label>
-                           <asp:DropDownList ID="ddlRoomType" runat="server" CssClass="form-control" >
-                                     <asp:ListItem Text="-- Select Your Room Type --" Value="" />
-                                     <asp:ListItem Text="Single Room" Value="Single Room" />
-                                     <asp:ListItem Text="Double Room" Value="Double Room" />
-                                  
-                            </asp:DropDownList>
+                    <asp:DropDownList ID="ddlRoomType" runat="server" CssClass="form-control"
+    AutoPostBack="true" OnSelectedIndexChanged="ddlRoomType_SelectedIndexChanged">
+    <asp:ListItem Text="-- Select Your Room Type --" Value="" />
+    <asp:ListItem Text="Single Room" Value="Single Room" />
+    <asp:ListItem Text="Double Room" Value="Double Room" />
+    <asp:ListItem Text="Triple Room" Value="Triple Room" />
+</asp:DropDownList>
+
 
                         </div> 
 
 
-                        <div class="input my-3">
-                            <label for="txtNumber">Number of people</label>
-                            <asp:TextBox TextMode="number" CssClass="form-control mt-1" runat="server" ID="txtNumberOfPeople" ></asp:TextBox>
-                        </div>
+                   
 
                         <div class="input" my-3>
                             <label>Enter Booking Date</label>
@@ -108,7 +125,7 @@
                         </div>
                         <div class="upload-document my-3">
                             <label for="">Uplaod document</label>
-                            <asp:FileUpload ID="DocumentPhoto" runat="server" CssClass="form-control my-1" accept=".jpg, .jpeg, .pdf" required />
+                            <asp:FileUpload ID="DocumentPhoto" runat="server" CssClass="form-control my-1" accept=".jpg, .jpeg" required />
                         </div>
 
                     </div>
@@ -157,6 +174,32 @@
                }
            });
            });
+
+
+
+           
 </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const numPeopleInput = document.getElementById('<%= txtNumberOfPeople.ClientID %>');
+        const roomTypeDiv = document.getElementById('<%= roomtype.ClientID %>');
+
+        function toggleRoomTypeVisibility() {
+            if (numPeopleInput.value.trim().length > 0) {
+                roomTypeDiv.style.display = 'block';
+            } else {
+                roomTypeDiv.style.display = 'none';
+            }
+        }
+
+        // Call initially (on page load)
+        toggleRoomTypeVisibility();
+
+        // Call on every input change
+        numPeopleInput.addEventListener('input', toggleRoomTypeVisibility);
+    });
+</script>
+
 </body>
 </html>

@@ -14,10 +14,10 @@ public partial class General_PropertyDetails : System.Web.UI.Page
     {
          if (!IsPostBack)
         {
-            if (Request.QueryString["ID"] != null)  // Checking if ID exists in query string
+            if (Request.QueryString["ID"] != null)  
             {
                 int propertyID;
-                if (int.TryParse(Request.QueryString["ID"], out propertyID))  // Validating if it's an integer
+                if (int.TryParse(Request.QueryString["ID"], out propertyID))  
                 {
                     LoadPropertyDetails(propertyID);
                     LoadReviews(propertyID);
@@ -50,11 +50,11 @@ public partial class General_PropertyDetails : System.Web.UI.Page
             if (reader.Read())
             {
                 lblName.Text = reader["PropertyName"].ToString();
-                lblDescriptiojn.Text = reader["Description"].ToString();
+                lblDescription.Text = reader["Description"].ToString();
                 lblType.Text = reader["PropertyType"].ToString();
                 lblFacilities_1.Text = reader["Facility_Wifi"].ToString();
                 lblFacilities_2.Text = reader["Facility_Parking"].ToString();
-                lblFacilities_3.Text = reader["Facility_Parking"].ToString();
+               // lblFacilities_3.Text = reader["Facility_Parking"].ToString();
                 lblFacilities_4.Text = reader["Facility_WashingMachine"].ToString();
                 lblFacilities_5.Text = reader["Facility_Geyser"].ToString();
                 lblFacilities_6.Text = reader["Facility_CCTV"].ToString();
@@ -74,14 +74,14 @@ public partial class General_PropertyDetails : System.Web.UI.Page
                 lblContact.Text = reader["Contact"].ToString();
                 lblGender.Text = reader["Gender"].ToString();
 
-                lblSingleRoomRent.Text = reader["SingleRoomRent"].ToString();
-                lblSingleRoomSize.Text = reader["SingleRoomSize"].ToString();
-                lblDoubleRoomRent.Text = reader["DoubleRoomRent"].ToString();
-                lblDoubleRoomSize.Text = reader["DoubleRoomSize"].ToString();
-                lblTripleRoomRent.Text = reader["TripleRoomRent"].ToString();
-                lblTripleRoomSize.Text = reader["TripleRoomSize"].ToString();
+                lblSingleRoomRent.Text = reader["SingleRoomRent"].ToString()+" /Month";
+                lblSingleRoomSize.Text = reader["SingleRoomSize"].ToString()+" Sqft.";
+                lblDoubleRoomRent.Text = reader["DoubleRoomRent"].ToString()+" /Month";
+                lblDoubleRoomSize.Text = reader["DoubleRoomSize"].ToString()+" Sqft.";
+                lblTripleRoomRent.Text = reader["TripleRoomRent"].ToString()+" /Month";
+                lblTripleRoomSize.Text = reader["TripleRoomSize"].ToString()+" Sqft.";
 
-                // Load Image
+                
                
                
 
@@ -176,7 +176,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
             if (avgRatingObj != DBNull.Value)
             {
                 double avgRating = Convert.ToDouble(avgRatingObj);
-                lblAvgRating.Text = avgRating.ToString("0.0");  // Format: 1 decimal
+                lblAvgRating.Text = avgRating.ToString("0.0");  
             }
             else
             {
@@ -187,7 +187,7 @@ public partial class General_PropertyDetails : System.Web.UI.Page
 
      protected void BookingClick(object sender, EventArgs e)
     {
-        string propertyId = Request.QueryString["ID"]; // ✅ Correct query string key
+        string propertyId = Request.QueryString["ID"]; 
         if (!string.IsNullOrEmpty(propertyId))
         {
             Session["SelectedPropertyId"] = propertyId;

@@ -9,19 +9,49 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
      <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />
-   <%-- <link href="../General/StyleSheets/BookingRequestApproval.css" rel="stylesheet" />--%>
+
     <style>
+.details {
+        background-color: #f8f9fa;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        margin-top: 2rem;
+    }
 
-        .details .form-label {
-    font-size: 0.95rem;
-    color: #555;
-}
+    .details .form-label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #343a40;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-.details .form-control-plaintext {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #222;
-}
+    .details .form-control-plaintext {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #212529;
+        background-color: #fff;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #dee2e6;
+    }
+
+    .details svg {
+        color: #0d6efd;
+    }
+
+    .details .card {
+        background: #ffffff;
+        border-radius: 1rem;
+        border: none;
+    }
+
+    .details .btn {
+        min-width: 120px;
+    }
+
 
     </style>
      
@@ -132,6 +162,10 @@
                     <label class="form-label fw-semibold">Document Number</label>
                     <p><asp:Label runat="server" ID="lblDocumentNumber" CssClass="form-control-plaintext"></asp:Label></p>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Room Type</label>
+                    <p><asp:Label runat="server" ID="lblRoomType" CssClass="form-control-plaintext"></asp:Label></p>
+                </div>
             </div>
 
             <!-- Column 3 -->
@@ -144,13 +178,14 @@
                     <label class="form-label fw-semibold">Booking Date</label>
                     <p><asp:Label runat="server" ID="lblBookingdate" CssClass="form-control-plaintext"></asp:Label></p>
                 </div>
+                <label class="form-label fw-semibold">Click here to view document</label>
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-outline-primary mt-2" Text="📄 View Document" OnClick="View_Click" />
             </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-end gap-3 mt-4">
-            <asp:Button ID="Button2" runat="server" CssClass="btn btn-secondary" Text="Back" />
+            <asp:Button ID="Button2" runat="server" CssClass="btn btn-secondary" Text="Back" OnClick="back_Click" />
             <asp:Button ID="Button3" runat="server" CssClass="btn btn-success" OnClick="Accept_Click" Text="Accept" />
         </div>
     </div>

@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Stay Finder</title>
+    <link rel="icon" href="General/Assets/logo.webp">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,6 +13,10 @@
     <link href="General/StyleSheets/index.css" rel="stylesheet" />
     <link href="General/StyleSheets/Navbar.css" rel="stylesheet" />
     <link href="General/StyleSheets/PageLoader.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
     .hover-dropdown:hover .dropdown-menu {
         display: block;
@@ -49,14 +54,13 @@
         <li class="nav-item dropdown hover-dropdown">
             <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Login</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="User/Login.aspx">User Login</a></li>
+                <li><a class="dropdown-item" href="User/Login.aspx">Tenant Login</a></li>
                 <li><a class="dropdown-item" href="General/PropertyOwnerLogin.aspx">Property Owner Login</a></li>
-                <li><a class="dropdown-item" href="General/AdminLogin.aspx">Admin Login</a></li>
               
             </ul>
         </li>
 
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="General/AdminLogin.aspx" class="nav-link">Admin</a></li>
     </ul>
 </div>
                     </div>
@@ -79,7 +83,7 @@
                                 <p class="lead animate__animated animate__fadeInLeft animate__delay-1s">
                                     Search and rent PGs, mess, and flats near your location easily.
                                 </p>
-                                <a href="FindPg_Mess.aspx"
+                                <a href="General/FindPg_Mess.aspx"
                                     class="btn btn-lg btn-primary shadow-lg animate__animated animate__zoomIn animate__delay-2s">
                                     Find a Stay
                                 </a>
@@ -292,7 +296,56 @@
                     </div>
                 </section>
 
+<!-- Contact Us Section -->
+<section class="contact-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Get in Touch</h2>
+        <div class="row g-4">
+            <!-- Left: Contact Info -->
+            <div class="col-md-6">
+                <div class="bg-white shadow p-4 rounded-4 h-100">
+                    <h4 class="fw-bold mb-4">Contact Information</h4>
+                    <p><i class="bi bi-geo-alt-fill text-primary me-2"></i> 123, Park Street, Kolkata, India - 700001</p>
+                    <p><i class="bi bi-telephone-fill text-primary me-2"></i> +91 98765 43210</p>
+                    <p><i class="bi bi-envelope-fill text-primary me-2"></i> support@stayfinder.com</p>
+                    <hr />
+                    <h5 class="fw-semibold mb-3">Follow Us</h5>
+                    <a href="#" class="text-dark me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-dark me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-dark me-3 fs-5"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="text-dark fs-5"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
 
+            <!-- Right: Contact Form -->
+            <div class="col-md-6">
+                <div class="bg-white shadow p-4 rounded-4">
+                    <h4 class="fw-bold mb-4">Send Us a Message</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><i class="bi bi-person-fill text-primary me-2"></i>Your Name</label>
+                            <asp:TextBox runat="server" ID="txtName" CssClass="form-control" placeholder="Enter your name" required></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="bi bi-envelope-at-fill text-primary me-2"></i>Email</label>
+                            <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="Enter your email" required></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label"><i class="bi bi-chat-dots-fill text-primary me-2"></i>Message</label>
+                             <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" placeholder="Enter your message..." required/>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <asp:Button runat="server" CssClass="btn btn-primary shadow" Text="Submit" OnClick="submit_Click" />
+                            <a href="https://wa.me/9609073653" target="_blank" class="btn btn-success shadow">
+                                <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 

@@ -82,7 +82,13 @@
 
           </li>
          
-        
+         <li>
+            <a href="Messages.aspx" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"></svg>
+              Messages
+            </a>
+
+          </li>
           
         </ul>
         <hr>

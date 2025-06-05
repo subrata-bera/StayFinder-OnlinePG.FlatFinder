@@ -9,10 +9,22 @@
     <title>Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../General/StyleSheets/AddProperty.css" rel="stylesheet" />
-       
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
 
      <style>
-        
+         .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+        }
       body {
         background-color: #f1f5f9;
       }
@@ -120,6 +132,8 @@
   <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 </svg>
        </div>
+
+           <h2 class="text-center text-primary">Property Owner</h2>
           
             <div class="container py-2">
       <div class="row g-4">
@@ -128,102 +142,98 @@
           <hr />
 
           <!-- Total Properties -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Total Properties Added</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblTotalProperties" runat="server"></asp:Label>
-            </div>
-            <a href="PropertyList.aspx" class="btn view-btn btn-primary btn-primary">View</a>
-          </div>
-        </div>
+   
+          <div class="col-md-4">
+                    <div class="card bg-primary text-white text-center p-4">
+                        <i class="bi bi-building-fill card-icon mb-2"></i>
+                        <h4>Total Properties Added</h4>
+                        <asp:Label ID="lblTotalProperties" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
+                    </div>
+                </div>
 
 
         <!-- Pending Properties -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Pending Properties</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblPendingProperties" runat="server" Text="0"></asp:Label>
-            </div>
-            <a href="PropertyList.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
-
+       
+          <div class="col-md-4">
+                    <div class="card bg-warning text-white text-center p-4">
+                        <i class="bi bi-hourglass-split card-icon mb-2"></i>
+                        <h4>Pending Properties</h4>
+                        <asp:Label ID="lblPendingProperties" runat="server" CssClass="fs-4 fw-bold" ></asp:Label>
+                    </div>
+                </div>
         
         <!-- Approved Properties -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Approved Properties</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblApprovedProperties" CssClass="text-success" runat="server"></asp:Label>
-            </div>
-            <a href="PropertyList.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
 
-          <!-- Rejected Properties -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Rejected Properties</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblRejectedProperties" runat="server" CssClass="text-danger"></asp:Label>
-            </div>
-            <a href="PropertyList.aspx" class="btn view-btn btn-primary btn-primary">View</a>
-          </div>
-        </div>
+            <div class="col-md-4">
+                    <div class="card bg-info text-white  text-center p-4">
+                        <i class="bi bi-check-circle-fill card-icon mb-2"></i>
+                        <h4>Approved Properties</h4>
+                        <asp:Label ID="lblApprovedProperties" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+            <!-- Rejected Properties -->
+          <div class="col-md-4">
+                    <div class="card bg-danger text-white text-center p-4">
+                        <i class="bi bi-x-circle-fill card-icon mb-2"></i>
+                        <h4>Rejected Properties</h4>
+                        <asp:Label ID="lblRejectedProperties" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
 
-         </div>
+        
+       
 
                
          <div class="row g-4 py-5">
 
-          <h3>Site-Visit Requests</h3>
+          <h3>Booking Requests</h3>
           <hr />
 
-           <!-- Total Requests -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Total Requests</div>
-            <div class="dashboard-number">
-              <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
-            </div>
-            <a href="SiteView_Requests.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
+       
 
-        <!-- Pending Requests -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Pending Booking Requests</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblPendingBookings" runat="server" Text="0"></asp:Label>
-            </div>
-            <a href="SiteView_Requests.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
+<%--------------------------------------------------------------------------------------------------------------------------------------%>
+                <!-- Total Properties -->
+   
+          <div class="col-md-4">
+                    <div class="card bg-primary text-white text-center p-4">
+                        <i class="bi bi-people-fill card-icon mb-2"></i>
+                        <h4>Total Requests</h4>
+                        <asp:Label ID="Label3" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
 
-        <!-- Accepted Requests -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Accepted Booking Requests</div>
-            <div class="dashboard-number">
-              <asp:Label ID="lblAcceptedBookings" CssClass="text-success" runat="server"></asp:Label>
-            </div>
-            <a href="SiteView_Requests.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
 
-             <!-- Rejected Requests -->
-        <div class="col-md-4">
-          <div class="dashboard-card">
-            <div class="dashboard-title">Rejected Requests</div>
-            <div class="dashboard-number">
-              <asp:Label ID="Label2" CssClass="text-danger" runat="server" Text="0"></asp:Label>
-            </div>
-            <a href="SiteView_Requests.aspx" class="btn view-btn btn-primary">View</a>
-          </div>
-        </div>
+        <!-- Pending Properties -->
+       
+          <div class="col-md-4">
+                    <div class="card bg-warning text-white text-center p-4">
+                        <i class="bi bi-hourglass-split card-icon mb-2"></i>
+                        <h4>Pending Booking Requests</h4>
+                        <asp:Label ID="lblPendingBookings" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
+                    </div>
+                </div>
+        
+        <!-- Approved Properties -->
+
+            <div class="col-md-4">
+                    <div class="card bg-info text-white  text-center p-4">
+                        <i class="bi bi-check-circle-fill card-icon mb-2"></i>
+                        <h4>Accepted Booking Requests</h4>
+                        <asp:Label ID="lblAcceptedBookings" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+            <!-- Rejected Properties -->
+          <div class="col-md-4">
+                    <div class="card bg-danger text-white text-center p-4">
+                        <i class="bi bi-x-circle-fill card-icon mb-2"></i>
+                        <h4>Rejected Requests</h4>
+                        <asp:Label ID="Label6" runat="server" CssClass="fs-4 fw-bold" Text="0"></asp:Label>
+                    </div>
+                </div>
+             <%---------------------------------------------------------------------------------------------------%>
+
+
+
 
       </div>
     </div>
